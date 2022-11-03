@@ -1,4 +1,3 @@
-import prisma from "../lib/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { projects, socials, routes } from "@prisma/client";
 
@@ -32,4 +31,11 @@ const seed = () => {
       deploy: "https://andreynovaes.github.io/countdown/",
     },
   ];
+  // socials: socials[] = [
+  //   {
+  //     id: 1,
+  //     name: "Github",
+  //     link: "https://github.com/AndreyNovaes",
+  //     icon: "https://i.imgur.com/hoLU30P.jpeg",
+
 };

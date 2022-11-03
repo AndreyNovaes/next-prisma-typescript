@@ -29,6 +29,6 @@ model projects {
 model socials {
   id        Int      @id @default(autoincrement())
   name      String
-  path      String
+  link      String
   icon      String
 }
