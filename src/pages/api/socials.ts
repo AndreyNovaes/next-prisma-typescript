@@ -1,68 +1,70 @@
-import { prisma } from '../../lib/prisma'
+import { prisma } from '../../../lib/prisma'
 import type { NextApiRequest, NextApiResponse } from "next";
-import { routes } from "@prisma/client";
+import { socials } from "@prisma/client";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<routes[] | routes>
+  res: NextApiResponse<socials[] | socials>
 ) {
 // POST method
   if(req.method === 'POST') {
-    const routeCreated = await prisma.routes.create({
+    const social = await prisma.socials.create({
       data: {
         name: req.body.name,
-        path: req.body.path,
+        link: req.body.link,
+        icon: req.body.icon,
       },
     })
-    res.status(201).json(routeCreated)
+    res.status(201).json(social)
   }
 // POST method
 
 // GET method
   else if(req.method === 'GET') {
-    let route;
+    let response;
     if(req.query.id) {
-      route = await prisma.routes.findUnique({
+      response = await prisma.socials.findUnique({
         where: {
           id: Number(req.query.id),
         },
       })
     }
     else {
-      route = await prisma.routes.findMany()
+      response = await prisma.socials.findMany()
     }
-    res.status(200).json(route || [])
+    res.status(200).json(response || [])
   }
 // GET method
 
 // PUT method => overwrites the entire entity if it already exists, and creates a new resource if it doesn’t exist.
   else if(req.method === 'PUT') {
-    const routeOverwrite = await prisma.routes.update({
+    const social = await prisma.socials.update({
       where: {
         id: Number(req.query.id)
       },
       data: {
         name: req.body.name,
-        path: req.body.path,
+        link: req.body.link,
+        icon: req.body.icon,
       },
     })
-    res.status(200).json(routeOverwrite)
+    res.status(200).json(social)
   }
 // PUT method
 
 // PATCH method => updates only the fields that are provided in the request body.
   else if(req.method === 'PATCH') {
-    const routeModified = await prisma.routes.update({
+    const socials = await prisma.socials.update({
       where: { id: Number(req.query.id) },
       data: req.body,
     })
-    res.status(200).json(routeModified)
+    res.status(200).json(socials)
   }
 // PATCH mehtod
 
 // DELETE method
   else if(req.method === 'DELETE') {
-    await prisma.routes.delete({
+    await prisma.socials.delete({
       where: {
         id: Number(req.query.id)
       },

@@ -1,4 +1,4 @@
-import { prisma } from "../lib/prisma";
+import { prisma } from "../../lib/prisma";
 import { seed } from "./initialData";
 
 const data = seed();
@@ -15,13 +15,14 @@ async function main() {
     });
   }
   for (const route of data.routes) {
-    await prisma.routes.create({
-      data: route,
+    await prisma.routes.upsert({
+      where: { path: route.path },
+      update: {},
+      create: route,
     });
   }
 }
 
 main().then(() => {
-  console.log("Done");
   process.exit(0);
 });
