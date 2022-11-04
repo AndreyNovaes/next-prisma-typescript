@@ -1,10 +1,20 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import type { projects, socials, routes } from "@prisma/client";
+// import { Icon } from "@chakra-ui/react";
+// import React from "react";
+// import { 
+//   AiFillGithub,
+//   AiFillLinkedin,
+//   AiOutlineMail,
+// } from "react-icons/ai";
+// import { FaWhatsapp } from "react-icons/fa";
 
-const seed = () => {
-  const projects: projects[] = [
+type projectsSeed = Omit<projects, "id">;
+type socialsSeed = Omit<socials, "id">;
+type routesSeed = Omit<routes, "id">;
+
+export const seed = () => {
+  const projects: projectsSeed[] = [
     {
-      id: 1,
       title: "Ebytr",
       description: "Aplicação Web de gerenciamento de tarefas com front-end em ReactJS, back-end em Node Express, banco de dados MySQL com o ORM Sequelize e estilizado com chakra UI.",
       tags: ["React", "Javascript", "Node", "Express", "Restful", "MySQL", "Sequelize", 'Docker', 'Chakra UI', 'Testes unitários', 'Testes de integração'],
@@ -13,7 +23,6 @@ const seed = () => {
       deploy: "",
     },
     {
-      id: 2,
       title: "Desafios de Algoritmos e Estruturas de Dados",
       description: "Repositório com desafios de algoritmos e estruturas de dados em Javascript.",
       tags: ["Javascript", "Testes unitários", "Algoritmos", "Estruturas de Dados"],
@@ -22,7 +31,6 @@ const seed = () => {
       deploy: "",
     },
     {
-      id: 3,
       title: "Countdown",
       description: "Aplicação Web de contagem regressiva com front-end em ReactJS, estilizado com CSS",
       tags: ["React", "Javascript", "CSS", "HTML"],
@@ -31,11 +39,45 @@ const seed = () => {
       deploy: "https://andreynovaes.github.io/countdown/",
     },
   ];
-  // socials: socials[] = [
-  //   {
-  //     id: 1,
-  //     name: "Github",
-  //     link: "https://github.com/AndreyNovaes",
-  //     icon: "https://i.imgur.com/hoLU30P.jpeg",
-
+  const routes: routesSeed[] = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "About",
+      path: "/sobre",
+    },
+    {
+      name: "Projects",
+      path: "/projetos",
+    },
+    {
+      name: "Contact",
+      path: "/contato",
+    },
+  ];
+  const socials: socialsSeed[] = [
+    {
+      name: "Github",
+      link: "https://github.com/AndreyNovaes",
+      icon: "AiFillGithub",
+    },
+    {
+      name: "Linkedin",
+      link: "https://www.linkedin.com/in/andrey-novaes-0b0b1b1b3/",
+      icon: "AiFillLinkedin",
+    },
+    {
+      name: "Whatsapp",
+      link: "https://api.whatsapp.com/send?phone=5519999999999",
+      icon: "FaWhatsapp"
+    },
+    {
+      name: "Email",
+      link: "mailto:andreynovaespro@gmail.com",
+      icon: "AiOutlineMail"
+    },
+  ];
+  return { projects, routes, socials };
 };

@@ -11,7 +11,7 @@ export default async function handler(
     const social = await prisma.socials.create({
       data: {
         name: req.body.name,
-        path: req.body.link,
+        link: req.body.link,
         icon: req.body.icon,
       },
     })
@@ -44,7 +44,7 @@ export default async function handler(
       },
       data: {
         name: req.body.name,
-        path: req.body.path,
+        link: req.body.link,
         icon: req.body.icon,
       },
     })

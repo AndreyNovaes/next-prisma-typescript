@@ -9,7 +9,7 @@ export default async function handler(
 ) {
 // POST method
   if(req.method === 'POST') {
-    const proejectCreated = await prisma.projects.create({
+    const projectCreated = await prisma.projects.create({
       data: {
         title: req.body.title,
         description: req.body.description,
@@ -19,14 +19,13 @@ export default async function handler(
         deploy: req.body.deploy,
       },
     })
-    res.status(201).json(proejectCreated)
+    res.status(201).json(projectCreated)
   }
 // POST method
 
 // GET method
   else if(req.method === 'GET') {
     let project;
-
     if(req.query.id) {
       project = await prisma.projects.findUnique({
         where: {

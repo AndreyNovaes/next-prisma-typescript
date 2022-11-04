@@ -1,1 +1,27 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { prisma } from "../lib/prisma";
+import { seed } from "./initialData";
+
+const data = seed();
+
+async function main() {
+  for (const project of data.projects) {
+    await prisma.projects.create({
+      data: project,
+    });
+  }
+  for (const social of data.socials) {
+    await prisma.socials.create({
+      data: social,
+    });
+  }
+  for (const route of data.routes) {
+    await prisma.routes.create({
+      data: route,
+    });
+  }
+}
+
+main().then(() => {
+  console.log("Done");
+  process.exit(0);
+});

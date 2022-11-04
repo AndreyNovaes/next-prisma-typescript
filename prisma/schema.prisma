@@ -13,7 +13,7 @@ datasource db {
 model routes {
   id        Int      @id @default(autoincrement())
   name      String
-  path      String
+  path      String   @unique
 }
 
 model projects {
