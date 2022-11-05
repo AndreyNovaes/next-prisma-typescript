@@ -1,12 +1,4 @@
 import type { projects, socials, routes } from "@prisma/client";
-// import { Icon } from "@chakra-ui/react";
-// import React from "react";
-// import { 
-//   AiFillGithub,
-//   AiFillLinkedin,
-//   AiOutlineMail,
-// } from "react-icons/ai";
-// import { FaWhatsapp } from "react-icons/fa";
 
 type projectsSeed = Omit<projects, "id">;
 type socialsSeed = Omit<socials, "id">;

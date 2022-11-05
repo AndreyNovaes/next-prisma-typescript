@@ -1,5 +1,6 @@
-import { prisma } from "../../lib/prisma";
 import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:3000';
 
 export async function getSocials() {
   try {
