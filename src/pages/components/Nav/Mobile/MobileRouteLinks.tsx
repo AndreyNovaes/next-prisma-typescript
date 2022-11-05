@@ -1,13 +1,10 @@
 import React from 'react';
 import {
   Box,
-  Flex,
-  HStack,
   IconButton,
-  useDisclosure,
-  useColorModeValue,
   Stack,
 } from '@chakra-ui/react';
+import NavRoutesLink from '../Web/NavRoutesLink';
 
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { routes } from '@prisma/client';
@@ -21,7 +18,7 @@ type props = {
 
 export default function MobileMenu ({routes, isOpen, onOpen, onClose}: props): JSX.Element {
   return (
-    <Box display={{ md: 'none' }}>
+    <Box>
       <IconButton
         size={'md'}
         icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -30,20 +27,20 @@ export default function MobileMenu ({routes, isOpen, onOpen, onClose}: props): J
         onClick={isOpen ? onClose : onOpen}
       />
       <Box
-        display={isOpen ? 'block' : 'none'}
+        display={{ base: isOpen ? 'block' : 'none', md: 'none' }}
         flexBasis={{ base: '100%', md: 'auto' }}
       >
-        <Stack
-          spacing={8}
-          align={'center'}
-          justify={'center'}
-        >
-          {routes && routes.map(({ id, name, path }) => (
-            <Box key={id}>
-              <a href={path}>{name}</a>
+        {
+          isOpen ?
+          (
+            <Box pb={4} display={{ md: 'none' }}>
+              <Stack as={'nav'} spacing={4}>
+                <NavRoutesLink routes={routes} />
+              </Stack>
             </Box>
-          ))}
-        </Stack>
+          )
+          : null
+        }
       </Box>
     </Box>
   );

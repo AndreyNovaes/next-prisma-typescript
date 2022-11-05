@@ -1,6 +1,7 @@
 import React from "react";
 import ColorModeSwitcher from "./Web/ColorModeSwitcher";
 import NavRoutesLink from "./Web/NavRoutesLink";
+import MobileMenu from "./Mobile/MobileRouteLinks";
 import {
   Box,
   Flex,
@@ -8,6 +9,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  VStack,
 } from '@chakra-ui/react';
 
 import { routes } from "@prisma/client";
@@ -17,7 +19,8 @@ type NavProps = {
 }
 
 export default function Nav({ routes }: NavProps): JSX.Element {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
 
   return (
     <Box
@@ -31,6 +34,7 @@ export default function Nav({ routes }: NavProps): JSX.Element {
       shadow="lg"
     >
     <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <MobileMenu routes={routes} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
       <HStack spacing={8} alignItems={'center'}>
         <HStack 
           as={'nav'}
@@ -41,9 +45,9 @@ export default function Nav({ routes }: NavProps): JSX.Element {
           <NavRoutesLink routes={routes} />
         </HStack>
       </HStack>
-      <HStack alignItems={'center'}>
+      <VStack alignItems={'center'}>
         <ColorModeSwitcher />
-      </HStack>
+      </VStack>
     </Flex>
   </Box>
   );
