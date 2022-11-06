@@ -1,7 +1,6 @@
 import React from "react";
 import ColorModeSwitcher from "./Web/ColorModeSwitcher";
 import NavRoutesLink from "./Web/NavRoutesLink";
-import MobileMenu from "./Mobile/MobileRouteLinks";
 import {
   Box,
   Flex,
@@ -11,17 +10,14 @@ import {
   Stack,
   VStack,
 } from '@chakra-ui/react';
-
+import MenuMobile from "./Mobile/Menu";
 import { routes } from "@prisma/client";
 
-type NavProps = {
-  routes: routes[]
-}
+type props = {
+  routes: routes[];
+};
 
-export default function Nav({ routes }: NavProps): JSX.Element {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-
+export default function Nav({ routes }: props ): JSX.Element {
   return (
     <Box
       as="header"
@@ -33,21 +29,35 @@ export default function Nav({ routes }: NavProps): JSX.Element {
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       shadow="lg"
     >
+
     <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-      <MobileMenu routes={routes} isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
-      <HStack spacing={8} alignItems={'center'}>
-        <HStack 
+      {/* Web Menu routes */}
+      <HStack 
           as={'nav'}
           spacing={4}
           alignItems={'center'}
           display={{ base: 'none', md: 'flex' }}
         >
-          <NavRoutesLink routes={routes} />
-        </HStack>
+        {
+          routes && routes.map(({ id, name, path }) => (
+            <Box key={id} _hover={{ bg: useColorModeValue("gray.200", "gray.700")}} rounded='full'>
+              <NavRoutesLink id={id} name={name} path={path} />
+            </Box>
+          ))
+        }
       </HStack>
-      <VStack alignItems={'center'}>
+      {/* Web Menu routes */}
+
+      {/* Menu Mobile (Hamburger) */}
+      <MenuMobile routes={routes} />
+      {/* Menu Mobile (Hamburger) */}
+      
+      {/* Color mode switcher */}
+      <HStack alignItems={'center'}>
         <ColorModeSwitcher />
-      </VStack>
+      </HStack>
+      {/* Color mode switcher */}
+
     </Flex>
   </Box>
   );
