@@ -5,10 +5,7 @@ import {
   Box,
   Flex,
   HStack,
-  useDisclosure,
   useColorModeValue,
-  Stack,
-  VStack,
 } from '@chakra-ui/react';
 import MenuMobile from "./Mobile/Menu";
 import { routes } from "@prisma/client";
