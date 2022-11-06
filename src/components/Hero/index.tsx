@@ -10,7 +10,7 @@ import {
 import TypewriterComponent from 'typewriter-effect';
 import nextLink from 'next/link';
 
-export default function Hero() {
+export default function Hero(): JSX.Element {
   return (
     <>
       <Container maxW='4xl'>
