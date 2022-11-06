@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import MenuMobile from "./Mobile/Menu";
 import { routes } from "@prisma/client";
+import { motion } from "framer-motion"
 
 type props = {
   routes: routes[];
@@ -50,9 +51,17 @@ export default function Nav({ routes }: props ): JSX.Element {
       {/* Menu Mobile (Hamburger) */}
       
       {/* Color mode switcher */}
-      <HStack alignItems={'center'}>
-        <ColorModeSwitcher />
-      </HStack>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          drag
+          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+          dragElastic={1}
+          // animate={{ initial: { y: 0 }, hover: { y: -10 } }}
+          // transition={{ duration: 0.2, ease: "easeOut" }}
+        >
+          <ColorModeSwitcher />
+        </motion.div>
       {/* Color mode switcher */}
 
     </Flex>
