@@ -1,9 +1,13 @@
 import React from "react";
-import { useColorModeValue, Link, HStack } from "@chakra-ui/react";
+import { useColorModeValue, Link } from "@chakra-ui/react";
 import LinkNext from "next/link";
 import { routes } from "@prisma/client";
+import { useRouter } from "next/router";
 
 export default function NavRoutesLink({ id, path, name }: routes): JSX.Element {
+  const router = useRouter();
+  const isActive = router.pathname === path;
+  const activeColor = useColorModeValue("gray.300", "gray.600");
   return (
     <>
       <Link
@@ -13,9 +17,11 @@ export default function NavRoutesLink({ id, path, name }: routes): JSX.Element {
         as={LinkNext}
         px={2}
         py={1}
-        _activeLink={{
-          color: useColorModeValue("gray.300", "gray.700"),
-          fontWeight: "semibold",
+        fontSize={"2xl"}
+        bg={isActive ? activeColor : undefined}
+        _hover={{
+          textDecoration: "none",
+          bg: activeColor,
         }}
         >
           {name}
