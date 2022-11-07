@@ -19,7 +19,7 @@ export default function NavSocialLinks({ socials }: { socials: socials[] }): JSX
             variant="outline"
             size="lg"
             mx={2}
-            padding="2"
+            padding="1"
             fontSize="30px"
             _hover={{ bg: useColorModeValue("gray.200", "gray.700") }}
           />

@@ -56,7 +56,7 @@ export default function Nav({ routes }: props ): JSX.Element {
           whileTap={{ scale: 0.9 }}
           drag
           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          dragElastic={1}
+          dragElastic={0.7}
           // animate={{ initial: { y: 0 }, hover: { y: -10 } }}
           // transition={{ duration: 0.2, ease: "easeOut" }}
         >
