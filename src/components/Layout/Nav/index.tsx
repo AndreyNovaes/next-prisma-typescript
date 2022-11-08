@@ -9,13 +9,13 @@ import {
 } from '@chakra-ui/react';
 import MenuMobile from "./Mobile/Menu";
 import { routes } from "@prisma/client";
-import { motion } from "framer-motion"
+import ButtonClickAnimation from "../../../Animations/ButtonClick";
 
 type props = {
   routes: routes[];
 };
 
-export default function Nav({ routes }: props ): JSX.Element {
+export default function Nav({ routes }: props): JSX.Element {
   return (
     <Box
       as="header"
@@ -38,9 +38,11 @@ export default function Nav({ routes }: props ): JSX.Element {
         >
         {
           routes && routes.map(({ id, name, path }) => (
-            <Box key={id} _hover={{ bg: useColorModeValue("gray.200", "gray.700")}} rounded='full'>
-              <NavRoutesLink id={id} name={name} path={path} />
-            </Box>
+            <ButtonClickAnimation>
+              <Box key={id} _hover={{ bg: useColorModeValue("gray.200", "gray.700")}} rounded='full'>
+                <NavRoutesLink id={id} name={name} path={path} />
+              </Box>
+            </ButtonClickAnimation>
           ))
         }
       </HStack>
@@ -51,17 +53,10 @@ export default function Nav({ routes }: props ): JSX.Element {
       {/* Menu Mobile (Hamburger) */}
       
       {/* Color mode switcher */}
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          drag
-          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          dragElastic={0.7}
-          // animate={{ initial: { y: 0 }, hover: { y: -10 } }}
-          // transition={{ duration: 0.2, ease: "easeOut" }}
-        >
+        <ButtonClickAnimation>
           <ColorModeSwitcher />
-        </motion.div>
+        </ButtonClickAnimation>
+        
       {/* Color mode switcher */}
 
     </Flex>

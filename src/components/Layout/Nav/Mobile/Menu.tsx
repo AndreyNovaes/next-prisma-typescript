@@ -13,32 +13,35 @@ import {
 import NavRoutesLink from '../Web/NavRoutesLink';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { routes } from '@prisma/client';
+import ButtonClickAnimation from '../../../../Animations/ButtonClick';
 
 type props = {
   routes: routes[];
 };
 
-export default function MenuMobile ({routes}: props): JSX.Element {
+export default function MenuMobile({routes}: props): JSX.Element {
   return (
     <Box
       display={{ md: 'none' }}
       bg={useColorModeValue('gray.100', 'gray.900')}
     >
       <Menu variant={'roundLeft'}>
-        <MenuButton
-          as={Button}
-          aria-label="Options"
-          size="md"
-          variant="outline"
-        >
-          <HamburgerIcon />
-        </MenuButton>
+        <ButtonClickAnimation>
+          <MenuButton
+            as={Button}
+            aria-label="Options"
+            size="md"
+            variant="outline"
+            >
+            <HamburgerIcon />
+          </MenuButton>
+        </ButtonClickAnimation>
         <MenuList>
           <VStack spacing={4} align="stretch">
             {
               routes && routes.map(({ id, name, path }) => (
                 <>
-                  <MenuItem key={id} closeOnSelect={true} as={NavRoutesLink} name={name} path={path} />
+                  <NavRoutesLink id={id} name={name} path={path}  />
                   <MenuDivider />
                 </>
               ))
