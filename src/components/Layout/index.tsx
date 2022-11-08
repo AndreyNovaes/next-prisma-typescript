@@ -1,4 +1,4 @@
-import { ChakraProvider, Flex, Spacer } from '@chakra-ui/react'
+import { Box, ChakraProvider, Flex, Spacer } from '@chakra-ui/react'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { getRoutes } from '../../services/requests'
@@ -15,16 +15,28 @@ export default function Layout({ children }: React.PropsWithChildren<{}>): JSX.E
 
   return (
     <>
-      <Head >
+      <Head>
         <title>Andrey Novaes</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </Head>
       <ChakraProvider theme={theme}>
-        <Flex direction="column" maxHeight='100vh'>
-          <Nav routes={routes} />
-          {children}
-          <Footer />
+
+        <Flex direction="column" minH="100vh">
+
+          <Box as="nav">
+            <Nav routes={routes} />
+          </Box>
+
+          <Box as="main">
+            {children}
+          </Box>
+
+          <Box as="footer">
+            <Footer />
+          </Box>
+
         </Flex>
+
       </ChakraProvider>
     </>
   )

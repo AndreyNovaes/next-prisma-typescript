@@ -13,7 +13,7 @@ import nextLink from 'next/link';
 export default function Hero(): JSX.Element {
   return (
     <>
-      <Container maxW='4xl'>
+      <Container maxW='100vh'>
         <Stack
           as={Box}
           textAlign={'center'}
@@ -24,7 +24,7 @@ export default function Hero(): JSX.Element {
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
             Olá, eu sou o Andrey <br />
-            <Text as={'span'} color={'blue.400'} maxW={400}>
+            <Text as={'span'} color={'blue.400'} >
               <TypewriterComponent
                 options={{
                   strings: ['Desenvolvedor Full Stack', 'Eterno aprendiz', 'Em busca da excelência', 'Sempre aberto a novos desafios'],
