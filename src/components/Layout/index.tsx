@@ -17,26 +17,22 @@ export default function Layout({ children }: React.PropsWithChildren<{}>): JSX.E
     <>
       <Head>
         <title>Andrey Novaes</title>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <ChakraProvider theme={theme}>
-
         <Flex direction="column" minH="100vh">
-
           <Box as="nav">
             <Nav routes={routes} />
           </Box>
-
+          <Spacer />
           <Box as="main">
             {children}
           </Box>
-
+          <Spacer />
           <Box as="footer">
             <Footer />
           </Box>
-
         </Flex>
-
       </ChakraProvider>
     </>
   )
