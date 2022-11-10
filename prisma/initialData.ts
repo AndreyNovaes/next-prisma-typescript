@@ -57,12 +57,12 @@ export const seed = () => {
     },
     {
       name: "Linkedin",
-      link: "https://www.linkedin.com/in/andrey-novaes-0b0b1b1b3/",
+      link: "https://www.linkedin.com/in/andrey-de-novaes",
       icon: "AiFillLinkedin",
     },
     {
       name: "Whatsapp",
-      link: "https://api.whatsapp.com/send?phone=5519999999999",
+      link: "https://api.whatsapp.com/send?phone=5521994312856",
       icon: "FaWhatsapp"
     },
   ];
