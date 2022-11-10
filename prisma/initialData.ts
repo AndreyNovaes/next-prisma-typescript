@@ -37,15 +37,15 @@ export const seed = () => {
       path: "/",
     },
     {
-      name: "About",
+      name: "Sobre",
       path: "/sobre",
     },
     {
-      name: "Projects",
+      name: "Projetos",
       path: "/projetos",
     },
     {
-      name: "Contact",
+      name: "Contatos",
       path: "/contato",
     },
   ];
@@ -64,11 +64,6 @@ export const seed = () => {
       name: "Whatsapp",
       link: "https://api.whatsapp.com/send?phone=5519999999999",
       icon: "FaWhatsapp"
-    },
-    {
-      name: "Email",
-      link: "mailto:andreynovaespro@gmail.com",
-      icon: "AiOutlineMail"
     },
   ];
   return { projects, routes, socials };
