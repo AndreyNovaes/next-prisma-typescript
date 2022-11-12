@@ -4,7 +4,6 @@ import { socials } from "@prisma/client"
 import {
   AiFillGithub,
   AiFillLinkedin,
-  AiOutlineMail,
 } from "react-icons/ai";
 import { FaWhatsapp } from "react-icons/fa";
 import ButtonClickAnimation from "../../../../Animations/ButtonClick";
