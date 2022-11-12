@@ -20,6 +20,6 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "react-in-jsx-scope": "off",
+        "react-in-jsx-scope": "off"
     }
 }

@@ -13,14 +13,14 @@ export default function NavSocialLinks({ socials }: { socials: socials[] }): JSX
   return (
     <>
       {socials && socials.map(({id, link, name}) => (
-        <ButtonClickAnimation>
+        <ButtonClickAnimation key={id}>
           <IconButton
             as={Link}
             key={id}
             href={link}
             isExternal
             aria-label={name}
-            icon={ name === "Github" ? <AiFillGithub /> : name === "Linkedin" ? <AiFillLinkedin /> : name === "Whatsapp" ? <FaWhatsapp /> : <AiOutlineMail /> }
+            icon={ name === "Github" ? <AiFillGithub /> : name === "Linkedin" ? <AiFillLinkedin /> : <FaWhatsapp /> }
             variant="outline"
             size="lg"
             fontSize="30px"

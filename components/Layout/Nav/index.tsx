@@ -38,7 +38,7 @@ export default function Nav({ routes }: props): JSX.Element {
         >
         {
           routes && routes.map(({ id, name, path }) => (
-            <ButtonClickAnimation>
+            <ButtonClickAnimation key={id}>
               <Box key={id} _hover={{ bg: useColorModeValue("gray.200", "gray.700")}} rounded='full'>
                 <NavRoutesLink id={id} name={name} path={path} />
               </Box>

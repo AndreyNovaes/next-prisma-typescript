@@ -12,7 +12,9 @@ import { getSocials } from '../../../services/requests';
 export default function Footer() {
   const [socials, setSocials] = useState([]);
   useEffect(() => {
-    getSocials().then((data) => setSocials(data));
+    getSocials().then((data) => {
+      setSocials(data);
+    });
   }, []);
 
   return (

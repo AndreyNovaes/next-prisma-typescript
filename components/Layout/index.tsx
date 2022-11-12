@@ -6,7 +6,7 @@ import theme from '../Theme'
 import Footer from './footer'
 import Nav from './Nav'
 
-export default function Layout({ children }: React.PropsWithChildren<{}>): JSX.Element {
+export default function Layout({ children }: React.PropsWithChildren): JSX.Element {
   const [routes, setRoutes] = useState([])
 
   useEffect(() => {
