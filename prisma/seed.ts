@@ -1,4 +1,4 @@
-import { prisma } from "../src/lib/prisma";
+import { prisma } from "../lib/prisma";
 import { seed } from "./initialData";
 
 const data = seed();
