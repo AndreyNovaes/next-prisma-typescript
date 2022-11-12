@@ -1,4 +1,4 @@
-
+/// <referemce types="cypress" />
 describe('Home page links', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -32,7 +32,7 @@ describe('Home page links', () => {
     });
   });
 
-  it.only('Linkedin SVG link', () => {
+  it('Linkedin SVG link', () => {
     cy.get('[aria-label="Linkedin"]').should('be.visible')
       .should('have.attr', 'href')
       .and('include', 'https://www.linkedin.com/in/andrey-de-novaes')
@@ -47,3 +47,5 @@ describe('Home page links', () => {
     });
   });
 });
+
+export {};

@@ -13,13 +13,13 @@ import nextLink from 'next/link';
 export default function Hero(): JSX.Element {
   return (
     <>
-      <Container maxW='100vh'>
+      <Container maxW={{ base: 'xl', md: ' 4xl',}}>
         <Stack
           as={Box}
-          textAlign={'center'}
-          >
+          textAlign={'center'}>
+
           <Heading
-            fontWeight={600}
+            fontWeight='extrabold'
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
             Olá, eu sou o Andrey <br />
@@ -33,13 +33,12 @@ export default function Hero(): JSX.Element {
                 }}
               />
             </Text>
-
-            <Text as={'span'} color={'green.400'}>
-            </Text>
           </Heading>
+
           <Text color={'gray.500'} fontSize={'xl'}>
             Busco, por meio da tecnologia, estimular a excelência, da mesma forma que fui estimulado pelos meus mentores.
           </Text>
+
           <Stack
             direction={{ base: 'column', md: 'row' }}
             spacing={{ base: 4, md: 8 }}
@@ -52,9 +51,8 @@ export default function Hero(): JSX.Element {
                 px={6}
                 colorScheme={'blue'}
                 as={nextLink}
-                href='/projetos'
-              >
-                Conheça meu trabalho
+                href='/projetos'>
+                  Conheça meu trabalho
               </Button>
               <Button 
                 colorScheme={'green'} 
@@ -63,11 +61,11 @@ export default function Hero(): JSX.Element {
                 fontWeight={'normal'} 
                 px={6}
                 as={nextLink}
-                href='/contato'
-              >
-                Entre em contato
+                href='/contato'>
+                  Entre em contato
               </Button>
-            </Stack>
+          </Stack>
+
         </Stack>
       </Container>
     </>
