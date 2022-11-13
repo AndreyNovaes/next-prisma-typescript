@@ -53,17 +53,14 @@ export const seed = () => {
     {
       name: "Github",
       link: "https://github.com/AndreyNovaes",
-      icon: "AiFillGithub",
     },
     {
       name: "Linkedin",
       link: "https://www.linkedin.com/in/andrey-de-novaes",
-      icon: "AiFillLinkedin",
     },
     {
       name: "Whatsapp",
       link: "https://api.whatsapp.com/send?phone=5521994312856",
-      icon: "FaWhatsapp"
     },
   ];
   return { projects, routes, socials };

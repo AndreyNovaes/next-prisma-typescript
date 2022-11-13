@@ -12,7 +12,6 @@ export default async function handler(
       data: {
         name: req.body.name,
         link: req.body.link,
-        icon: req.body.icon,
       },
     })
     res.status(201).json(social)
@@ -45,7 +44,6 @@ export default async function handler(
       data: {
         name: req.body.name,
         link: req.body.link,
-        icon: req.body.icon,
       },
     })
     res.status(200).json(social)
