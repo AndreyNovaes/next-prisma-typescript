@@ -4,12 +4,6 @@ import mockedData from "../../__mocks__/dataMocks";
 const mockRoutesWithoutId = mockedData.withoudId.routes;
 const mockRoutesWithId = mockedData.withId.routes
 
-type updateRoute = {
-  id: number;
-  name: string;
-  path: string;
-}
-
 describe("findMany and findUnique routes ./pages/api/routes.ts", () => {
   it("should get a Array of routes", async () => {
     // seto o retorno da promise do prismaMock
@@ -25,8 +19,8 @@ describe("findMany and findUnique routes ./pages/api/routes.ts", () => {
   it("should get a route", async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.findUnique.mockResolvedValue(mockRoutesWithId[0]);
-    // chamo a função que eu quero testar(findUnique)
     const routeId = 1;
+    // chamo a função que eu quero testar(findUnique)
     const route = await prismaMock.routes.findUnique({
       where: { id: routeId },
     });
@@ -35,10 +29,10 @@ describe("findMany and findUnique routes ./pages/api/routes.ts", () => {
     // verifico se o retorno da função é o valor esperado
     expect(route).toEqual(mockRoutesWithId[0]);
   });
-});
+})
 
-describe('create route ./pages/api/routes.ts', () => {
-  it('should create a route', async () => {
+describe("create route ./pages/api/routes.ts", () => {
+  it("should create a route", async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.create.mockResolvedValue(mockRoutesWithId[0]);
     // chamo a função que eu quero testar(create)
@@ -52,55 +46,33 @@ describe('create route ./pages/api/routes.ts', () => {
   });
 });
 
-describe('update routes ./pages/api/routes.ts', () => {
-  it('should create a route and then completely update the route created', async () => {
-    // crio um novo elemento route
-    prismaMock.routes.create.mockResolvedValue(mockRoutesWithId[0]);
-    const routeCreated = await prismaMock.routes.create({
-      data: mockRoutesWithoutId[0],
-    });
-    expect(routeCreated).toEqual(mockRoutesWithId[0]);
-    // crio um novo elemento route
-
-    // construo o eleemnto que substituira completamente o route criado, com o id do objeto que foi criado
-    const routeId = 1;
-    const mockUpdate = { routeId, ...mockRoutesWithoutId[3] } as unknown as updateRoute;
-    // construo o objeto que será atualizado, com o id do objeto que foi criado
-
+describe("update route ./pages/api/routes.ts", () => {
+  it("should update a route", async () => {
     // seto o retorno da promise do prismaMock
-    prismaMock.routes.update.mockResolvedValue(mockUpdate);
+    prismaMock.routes.update.mockResolvedValue(mockRoutesWithId[0]);
     // chamo a função que eu quero testar(update)
     const route = await prismaMock.routes.update({
-      where: { id: routeId },
-      data: mockRoutesWithoutId[3],
+      where: { id: 1 },
+      data: mockRoutesWithoutId[0],
     });
     // verifico se o update foi chamado apenas 1 vez
     expect(prismaMock.routes.update).toHaveBeenCalledTimes(1);
-    
     // verifico se o retorno da função é o valor esperado
-    expect(route).toEqual(mockUpdate);
+    expect(route).toEqual(mockRoutesWithId[0]);
   });
 });
 
-describe('DELETE routes ./pages/api/routes.ts', () => {
-  it('should create a route and then delete the route created', async () => {
-    // crio um novo elemento route
-    prismaMock.routes.create.mockResolvedValue(mockRoutesWithId[0]);
-    const routeCreated = await prismaMock.routes.create({
-      data: mockRoutesWithoutId[0],
-    });
-    expect(routeCreated).toEqual(mockRoutesWithId[0]);
-    // crio um novo elemento route
-
+describe("delete route ./pages/api/routes.ts", () => {
+  it("should delete a route", async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.delete.mockResolvedValue(mockRoutesWithId[0]);
     // chamo a função que eu quero testar(delete)
-    const routeId = 1;
-    await prismaMock.routes.delete({
-      where: { id: routeId },
+    const route = await prismaMock.routes.delete({
+      where: { id: 1 },
     });
     // verifico se o delete foi chamado apenas 1 vez
     expect(prismaMock.routes.delete).toHaveBeenCalledTimes(1);
-    // como o delete não retorna nada, não há como verificar o retorno da função
+    // verifico se o retorno da função é o valor esperado
+    expect(route).toEqual(mockRoutesWithId[0]);
   });
 });
