@@ -9,13 +9,16 @@
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
     "reset": "npx prisma migrate reset",
-    "test": "jest --silent",
+    "test:silent": "jest --silent",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
     "test:coverage": "jest --coverage",
     "tsc": "tsc --watch",
     "prepare": "husky install",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "migrate:docker": "dotenv -e .env.test -- npx prisma migrate dev --name postgres-init",
+    "seed:docker": "dotenv -e .env.test -- npx prisma db seed --preview-feature",
+    "test": "dotenv -e .env.test npm run test:silent"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
