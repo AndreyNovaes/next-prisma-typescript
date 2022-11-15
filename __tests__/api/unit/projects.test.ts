@@ -1,5 +1,5 @@
-import { prismaMock } from "../../__mocks__/prismaMock";
-import mockedData from "../../__mocks__/dataMocks";
+import { prismaMock } from '../../__mocks__/prismaMock';
+import mockedData from '../../__mocks__/dataMocks';
 
 const mockProjectsWithId = mockedData.withId.projects;
 const mockProjectsWithoutId = mockedData.withoudId.projects;

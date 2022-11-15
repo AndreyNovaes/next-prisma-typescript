@@ -1,11 +1,11 @@
-import { prismaMock } from "../../__mocks__/prismaMock";
-import mockedData from "../../__mocks__/dataMocks";
+import { prismaMock } from '../../__mocks__/prismaMock';
+import mockedData from '../../__mocks__/dataMocks';
 
 const mockRoutesWithoutId = mockedData.withoudId.routes;
 const mockRoutesWithId = mockedData.withId.routes
 
-describe("findMany and findUnique routes ./pages/api/routes.ts", () => {
-  it("should get a Array of routes", async () => {
+describe('findMany and findUnique routes ./pages/api/routes.ts', () => {
+  it('should get a Array of routes', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.findMany.mockResolvedValue(mockRoutesWithId);
     // chamo a função que eu quero testar(findMany)
@@ -16,7 +16,7 @@ describe("findMany and findUnique routes ./pages/api/routes.ts", () => {
     expect(routes).toEqual(mockRoutesWithId);
   });
 
-  it("should get a route", async () => {
+  it('should get a route', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.findUnique.mockResolvedValue(mockRoutesWithId[0]);
     const routeId = 1;
@@ -31,8 +31,8 @@ describe("findMany and findUnique routes ./pages/api/routes.ts", () => {
   });
 })
 
-describe("create route ./pages/api/routes.ts", () => {
-  it("should create a route", async () => {
+describe('create route ./pages/api/routes.ts', () => {
+  it('should create a route', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.create.mockResolvedValue(mockRoutesWithId[0]);
     // chamo a função que eu quero testar(create)
@@ -46,8 +46,8 @@ describe("create route ./pages/api/routes.ts", () => {
   });
 });
 
-describe("update route ./pages/api/routes.ts", () => {
-  it("should update a route", async () => {
+describe('update route ./pages/api/routes.ts', () => {
+  it('should update a route', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.update.mockResolvedValue(mockRoutesWithId[0]);
     // chamo a função que eu quero testar(update)
@@ -62,8 +62,8 @@ describe("update route ./pages/api/routes.ts", () => {
   });
 });
 
-describe("delete route ./pages/api/routes.ts", () => {
-  it("should delete a route", async () => {
+describe('delete route ./pages/api/routes.ts', () => {
+  it('should delete a route', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.routes.delete.mockResolvedValue(mockRoutesWithId[0]);
     // chamo a função que eu quero testar(delete)

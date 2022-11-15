@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import { 
   Icon,
   IconButton,
   useColorModeValue,
   useColorMode 
-} from "@chakra-ui/react";
-import { FaMoon, FaSun } from "react-icons/fa";
+} from '@chakra-ui/react';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 export default function ColorModeSwitcher() {
   const ColorModeSwitcher = useColorMode().toggleColorMode;
@@ -17,7 +17,7 @@ export default function ColorModeSwitcher() {
         icon={<Icon as={colorModeIcons} />}
         onClick={ColorModeSwitcher}
         variant="outline"
-        _hover={{ bg: useColorModeValue("gray.200", "gray.700") }}
+        _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
       />
   );
 }

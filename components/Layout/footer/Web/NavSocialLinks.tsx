@@ -1,14 +1,15 @@
-import { Link, useColorModeValue, IconButton } from "@chakra-ui/react"
-import React from "react"
-import { socials } from "@prisma/client"
+import { Link, useColorModeValue, IconButton } from '@chakra-ui/react'
+import React from 'react'
+import { socials } from '@prisma/client'
 import {
   AiFillGithub,
   AiFillLinkedin,
-} from "react-icons/ai";
-import { FaWhatsapp } from "react-icons/fa";
-import ButtonClickAnimation from "../../../../Animations/ButtonClick";
+} from 'react-icons/ai';
+import { FaWhatsapp } from 'react-icons/fa';
+import ButtonClickAnimation from '../../../../Animations/ButtonClick';
 
 export default function NavSocialLinks({ socials }: { socials: socials[] }): JSX.Element {
+  const iconBackgroundColor = useColorModeValue('gray.200', 'gray.700')
   return (
     <>
       {socials && socials.map(({id, link, name}) => (
@@ -19,11 +20,11 @@ export default function NavSocialLinks({ socials }: { socials: socials[] }): JSX
             href={link}
             isExternal
             aria-label={name}
-            icon={ name === "Github" ? <AiFillGithub /> : name === "Linkedin" ? <AiFillLinkedin /> : <FaWhatsapp /> }
+            icon={ name === 'Github' ? <AiFillGithub /> : name === 'Linkedin' ? <AiFillLinkedin /> : <FaWhatsapp /> }
             variant="outline"
             size="lg"
             fontSize="30px"
-            _hover={{ bg: useColorModeValue("gray.200", "gray.700") }}
+            _hover={{ bg: iconBackgroundColor }}
           />
         </ButtonClickAnimation>
       ))}

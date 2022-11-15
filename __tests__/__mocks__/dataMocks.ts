@@ -1,4 +1,4 @@
-import { seed } from "../../prisma/initialData";
+import { seed } from '../../prisma/initialData';
 
 const projectsWithoudId = seed().projects
 const routesWithoudId = seed().routes

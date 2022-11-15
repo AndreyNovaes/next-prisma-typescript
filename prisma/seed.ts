@@ -1,5 +1,5 @@
-import { prisma } from "../lib/prisma";
-import { seed } from "./initialData";
+import { prisma } from '../lib/prisma';
+import { seed } from './initialData';
 
 const data = seed();
 

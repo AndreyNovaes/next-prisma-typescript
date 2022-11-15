@@ -1,21 +1,22 @@
-import React from "react";
-import ColorModeSwitcher from "./Web/ColorModeSwitcher";
-import NavRoutesLink from "./Web/NavRoutesLink";
+import React from 'react';
+import ColorModeSwitcher from './Web/ColorModeSwitcher';
+import NavRoutesLink from './Web/NavRoutesLink';
 import {
   Box,
   Flex,
   HStack,
   useColorModeValue,
 } from '@chakra-ui/react';
-import MenuMobile from "./Mobile/Menu";
-import { routes } from "@prisma/client";
-import ButtonClickAnimation from "../../../Animations/ButtonClick";
+import MenuMobile from './Mobile/Menu';
+import { routes } from '@prisma/client';
+import ButtonClickAnimation from '../../../Animations/ButtonClick';
 
 type props = {
   routes: routes[];
 };
 
 export default function Nav({ routes }: props): JSX.Element {
+  const navBackgroundColor = useColorModeValue('gray.200', 'gray.700')
   return (
     <Box
       as="header"
@@ -24,7 +25,7 @@ export default function Nav({ routes }: props): JSX.Element {
       bg={useColorModeValue('gray.100', 'gray.900')}
       px={8}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
       shadow="lg"
     >
 
@@ -39,7 +40,7 @@ export default function Nav({ routes }: props): JSX.Element {
         {
           routes && routes.map(({ id, name, path }) => (
             <ButtonClickAnimation key={id}>
-              <Box key={id} _hover={{ bg: useColorModeValue("gray.200", "gray.700")}} rounded='full'>
+              <Box key={id} _hover={{ bg: navBackgroundColor }} rounded='full'>
                 <NavRoutesLink id={id} name={name} path={path} />
               </Box>
             </ButtonClickAnimation>

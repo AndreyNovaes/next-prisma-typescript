@@ -1,11 +1,11 @@
-import { prismaMock } from "../../__mocks__/prismaMock";
-import mockedData from "../../__mocks__/dataMocks";
+import { prismaMock } from '../../__mocks__/prismaMock';
+import mockedData from '../../__mocks__/dataMocks';
 
 const mockSocialsWithoutId = mockedData.withoudId.socials;
 const mockSocialsWithId = mockedData.withId.socials;
 
-describe("findMany and findUnique socials ./pages/api/socials.ts", () => {
-  it("should get a Array of socials", async () => {
+describe('findMany and findUnique socials ./pages/api/socials.ts', () => {
+  it('should get a Array of socials', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.socials.findMany.mockResolvedValue(mockSocialsWithId);
     // chamo a função que eu quero testar(findMany)
@@ -16,7 +16,7 @@ describe("findMany and findUnique socials ./pages/api/socials.ts", () => {
     expect(socials).toEqual(mockSocialsWithId);
   });
 
-  it("should get a social", async () => {
+  it('should get a social', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.socials.findUnique.mockResolvedValue(mockSocialsWithId[0]);
     const socialId = 1;
@@ -31,8 +31,8 @@ describe("findMany and findUnique socials ./pages/api/socials.ts", () => {
   });
 });
 
-describe("create social ./pages/api/socials.ts", () => {
-  it("should create a social", async () => {
+describe('create social ./pages/api/socials.ts', () => {
+  it('should create a social', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.socials.create.mockResolvedValue(mockSocialsWithId[0]);
     // chamo a função que eu quero testar(create)
@@ -46,8 +46,8 @@ describe("create social ./pages/api/socials.ts", () => {
   });
 });
 
-describe("update social ./pages/api/socials.ts", () => {
-  it("should update a social", async () => {
+describe('update social ./pages/api/socials.ts', () => {
+  it('should update a social', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.socials.update.mockResolvedValue(mockSocialsWithId[0]);
     const socialId = 1;
@@ -63,8 +63,8 @@ describe("update social ./pages/api/socials.ts", () => {
   });
 });
 
-describe("delete social ./pages/api/socials.ts", () => {
-  it("should delete a social", async () => {
+describe('delete social ./pages/api/socials.ts', () => {
+  it('should delete a social', async () => {
     // seto o retorno da promise do prismaMock
     prismaMock.socials.delete.mockResolvedValue(mockSocialsWithId[0]);
     const socialId = 1;
