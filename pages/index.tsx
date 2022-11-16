@@ -1,5 +1,5 @@
 import React from 'react'
-import Hero from '../components/Hero';
+import Hero from '../components/Main-Content/Home/Hero';
 
 export default function Home(): JSX.Element {
   return (

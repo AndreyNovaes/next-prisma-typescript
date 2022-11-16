@@ -18,7 +18,9 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "migrate:docker": "dotenv -e .env.test -- npx prisma migrate dev --name postgres-init",
     "seed:docker": "dotenv -e .env.test -- npx prisma db seed --preview-feature",
-    "test": "dotenv -e .env.test npm run test:silent"
+    "reset:docker": "dotenv -e .env.test -- npx prisma migrate reset",
+    "test": "dotenv -e .env.test npm run test:silent",
+    "do:you:remember": "psql -U prisma -W tests && dt command and select all from routes"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -31,7 +33,6 @@
     "@prisma/client": "^4.6.1",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
-    "dotenv": "^16.0.3",
     "framer-motion": "^6.5.1",
     "next": "13.0.1",
     "react": "18.2.0",
