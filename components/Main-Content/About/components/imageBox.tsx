@@ -4,7 +4,7 @@ export default function ImageBox() {
   return (
     <Image
     src='/images/about.jpeg'
-    alt='programmer'
+    alt='autor da página'
     width={300}
     height={300}
     />
