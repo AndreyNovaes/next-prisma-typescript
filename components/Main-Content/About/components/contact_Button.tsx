@@ -12,6 +12,7 @@ export default function ContactButton() {
         boxSize={{ base: '100%', md: '50%' }}
         fontWeight={'bold'}
         variant={'outline'}
+        rounded={'full'}
         padding='10px'
         marginTop='18px'
         fontSize={{ base: 'xl', md: '2xl' }}
