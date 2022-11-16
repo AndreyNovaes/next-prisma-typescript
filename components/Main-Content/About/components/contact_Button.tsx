@@ -16,6 +16,7 @@ export default function ContactButton() {
         marginTop='18px'
         fontSize={{ base: 'xl', md: '2xl' }}
         as={nextLink}
+        colorScheme='green'
         href='/contato'>
           Entre em contato
       </Button>

@@ -9,7 +9,7 @@ import nextLink from 'next/link';
 export default function TextBox(): JSX.Element {
   return (
     <>
-      <Stack spacing="4" maxW={{ base: 'lg', md: '4xl'}}>
+      <Stack spacing="4" maxW={{ base:'lg', sm:'lg', md: '2xl', lg: '4xl'}} margin='1rem'>
         <Heading 
           mt={{ base: '4', md: '8' }}
           fontSize={{ base: '3xl', md: '4xl' }}
@@ -21,7 +21,6 @@ export default function TextBox(): JSX.Element {
         >
           Como conheci a programação
         </Heading>
-
         <Box
           mt={{ base: '4', md: '10' }}
           fontSize={{ base: '2xl', md: '4xl' }}
