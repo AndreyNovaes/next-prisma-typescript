@@ -21,10 +21,11 @@ type props = {
 export default function MenuMobile({routes}: props): JSX.Element {
   return (
     <Box
+      zIndex={1}
       display={{ md: 'none' }}
       bg={useColorModeValue('gray.100', 'gray.900')}
     >
-      <Menu variant={'roundLeft'}>
+      <Menu>
         <ButtonClickAnimation>
           <MenuButton
             as={Button}

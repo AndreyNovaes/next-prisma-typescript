@@ -35,6 +35,7 @@ export default function SliderWrapper() {
   return (
     <>
       <Box
+        zIndex={{base: 0, md: 1}}
         as={Swiper}
         breakpoints={breakPoints}
         modules={[Navigation, Pagination, Scrollbar, A11y]}
