@@ -11,7 +11,7 @@ datasource db {
 }
 
 model routes {
-  id        Int      @id @default(autoincrement())
+  id        Int   @id @default(autoincrement())
   name      String
   path      String   @unique
 }

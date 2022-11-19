@@ -7,7 +7,6 @@ import {
   Button,
   VStack,
   useColorModeValue,
-  MenuDivider,
 } from '@chakra-ui/react';
 import NavRoutesLink from '../Web/NavRoutesLink';
 import { HamburgerIcon } from '@chakra-ui/icons';
@@ -40,10 +39,7 @@ export default function MenuMobile({routes}: props): JSX.Element {
           <VStack spacing={4} align="stretch">
             {
               routes && routes.map(({ id, name, path }) => (
-                <>
-                  <NavRoutesLink id={id} name={name} path={path}  />
-                  <MenuDivider />
-                </>
+                <NavRoutesLink key={id} id={id} name={name} path={path}  />
               ))
             }
           </VStack>

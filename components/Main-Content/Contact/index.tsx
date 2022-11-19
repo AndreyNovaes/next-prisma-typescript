@@ -19,9 +19,32 @@ import MailPhoneBox from '@/components/Main-Content/Contact/components/MailPhone
 
 export default function ContactWrapper(): JSX.Element {
   const [socials, setSocials] = useState<socials[]>([]);
+  // const [isDisabled, setIsDisabled] = useState<boolean>(true); 
+  const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
+  const [forms, setForms] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
   useEffect(() => {
     getSocials().then((data) => setSocials(data));
   }, []);
+
+  const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForms({ ...forms, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmiting(true);
+    setTimeout(() => {
+      setIsSubmiting(false);
+      setForms({ name: '', email: '', message: '' });
+    }, 3000);
+
+  };
 
   return (
     <Flex
@@ -74,13 +97,16 @@ export default function ContactWrapper(): JSX.Element {
                   <Heading fontSize="xl">
                     Ou, se preferir, preencha o formulário abaixo e me envie uma mensagem.
                   </Heading>
-                  <InputForm isRequired label='name' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />
-                  <InputForm isRequired label='email' name='email' type='email' placeholder='Email' leftIcon={<MdOutlineEmail />} />
-                  <InputForm isRequired label='message' name='message' type='text' placeholder='Mensagem' isTextArea />
+                  <InputForm handleOnChange={handleChanges} isRequired label='name' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />
+                  <InputForm handleOnChange={handleChanges} isRequired label='email' name='email' type='email' placeholder='Email' leftIcon={<MdOutlineEmail />} />
+                  <InputForm handleOnChange={handleChanges} isRequired label='message' name='message' type='text' placeholder='Mensagem' isTextArea />
                   <Button
+                    loadingText="Enviando..."
+                    isLoading={isSubmiting}
                     colorScheme="blue"
                     bg="telegram.500"
                     color="white"
+                    onClick={() => handleSubmit}
                     _hover={{
                       bg: 'telegram.700',
                     }} >

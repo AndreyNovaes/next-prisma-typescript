@@ -8,10 +8,11 @@ export default function NavRoutesLink({ id, path, name }: routes): JSX.Element {
   const router = useRouter();
   const isActive = router.pathname === path;
   const activeColor = useColorModeValue('gray.300', 'gray.600');
+  const saltGenerator = Math.random() * 1000;
   return (
     <>
       <Link
-        key={id}
+        key={id + saltGenerator}
         href={path}
         rounded={'full'}
         as={LinkNext}
