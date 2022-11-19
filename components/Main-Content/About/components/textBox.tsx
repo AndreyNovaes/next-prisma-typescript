@@ -32,7 +32,7 @@ export default function TextBox(): JSX.Element {
             color={useColorModeValue('gray.500', 'gray.400')}
           >
             <Text color={useColorModeValue('brand.600', 'brand.400')} align='center'>
-              Ex jogador profissional de e-sports, decidido a encontrar novos horizontes, tive o ímpeto de procurar uma nova, carreira encontrei o&nbsp;
+              Ex jogador profissional de e-sports, decidido a encontrar novos horizontes, com o ímpeto de procurar uma nova carreira encontrei o&nbsp;
               <Link color='telegram.400' as={nextLink} target='_blank' passHref href='https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0&ab_channel=CursoemV%C3%ADdeo'>
                 curso de python do Gustavo Guanabara
               </Link>

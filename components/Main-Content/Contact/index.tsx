@@ -7,6 +7,8 @@ import {
   Stack,
   useColorModeValue,
   VStack,
+  useToast,
+  ToastProps,
 } from '@chakra-ui/react';
 import NavSocialLinks from '@/components/Layout/footer/Web/NavSocialLinks';
 import { socials } from '@prisma/client';
@@ -18,9 +20,40 @@ import IconCopyTool from '@/components/Main-Content/Contact/components/ToolTIp';
 import MailPhoneBox from '@/components/Main-Content/Contact/components/MailPhoneBox';
 
 export default function ContactWrapper(): JSX.Element {
+  const successToast: ToastProps = {
+    title: 'Mensagem enviada com sucesso!',
+    description: 'Em breve entrarei em contato com você.',
+    status: 'success',
+    duration: 5000,
+    position: 'top',
+    isClosable: true,
+  };
+
+  const fieldToast: ToastProps = {
+    title: 'Preencha todos os campos!',
+    description: 'Por favor, preencha todos os campos obrigatórios',
+    status: 'error',
+    duration: 5000,
+    position: 'top',
+    isClosable: true,
+  };
+
+  const errorToast: ToastProps = {
+    title: 'Erro inesperado',
+    description: 'Por favor, tente novamente mais tarde',
+    status: 'error',
+    duration: 5000,
+    position: 'top',
+    isClosable: true,
+  };
+
+  const toast = useToast();
   const [socials, setSocials] = useState<socials[]>([]);
   // const [isDisabled, setIsDisabled] = useState<boolean>(true); 
   const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
+  // const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  // const [isError, setIsError] = useState<boolean>(false);
+
   const [forms, setForms] = useState({
     name: '',
     email: '',
@@ -36,14 +69,25 @@ export default function ContactWrapper(): JSX.Element {
     setForms({ ...forms, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitOnClick = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setIsSubmiting(true);
-    setTimeout(() => {
-      setIsSubmiting(false);
-      setForms({ name: '', email: '', message: '' });
-    }, 3000);
-
+    if (forms.name && forms.email && forms.message) {
+      setIsSubmiting(true);
+      console.log(forms);
+      setTimeout(() => {
+        setIsSubmiting(false);
+        setForms({ name: '', email: '', message: '' });
+        toast(successToast);
+      }, 3000);
+    }
+    else {
+      if(!forms.name || !forms.email || !forms.message) {
+        toast(fieldToast);
+      }
+      else {
+        toast(errorToast);
+      }
+    }
   };
 
   return (
@@ -97,19 +141,20 @@ export default function ContactWrapper(): JSX.Element {
                   <Heading fontSize="xl">
                     Ou, se preferir, preencha o formulário abaixo e me envie uma mensagem.
                   </Heading>
-                  <InputForm handleOnChange={handleChanges} isRequired label='name' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />
-                  <InputForm handleOnChange={handleChanges} isRequired label='email' name='email' type='email' placeholder='Email' leftIcon={<MdOutlineEmail />} />
-                  <InputForm handleOnChange={handleChanges} isRequired label='message' name='message' type='text' placeholder='Mensagem' isTextArea />
+                  <InputForm isDisabled={isSubmiting} value={forms.name} handleOnChange={handleChanges} isRequired label='name' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />
+                  <InputForm isDisabled={isSubmiting} value={forms.email} handleOnChange={handleChanges} isRequired label='email' name='email' type='email' placeholder='Email' leftIcon={<MdOutlineEmail />} />
+                  <InputForm isDisabled={isSubmiting} value={forms.message} handleOnChange={handleChanges} isRequired label='message' name='message' type='text' placeholder='Mensagem' isTextArea />
                   <Button
                     loadingText="Enviando..."
                     isLoading={isSubmiting}
+                    onLoad={() => setIsSubmiting(false)}
                     colorScheme="blue"
                     bg="telegram.500"
                     color="white"
-                    onClick={() => handleSubmit}
+                    onClick={handleSubmitOnClick}
                     _hover={{
                       bg: 'telegram.700',
-                    }} >
+                    }}>
                     Enviar Mensagem
                   </Button>
                 </VStack>
