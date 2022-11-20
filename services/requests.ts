@@ -15,7 +15,7 @@ export async function sendMail({ name, email, message }: form) {
 
 export async function getSocials() {
   try {
-    const response = await fetch(`${process.env.BASE_URL}/socials`, {
+    const response = await fetch(`${baseURL}/socials`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       cache: 'force-cache'
