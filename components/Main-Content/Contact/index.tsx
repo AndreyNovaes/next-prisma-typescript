@@ -9,17 +9,38 @@ import {
   VStack,
   useToast,
   ToastProps,
+  useBreakpointValue,
+  Text,
 } from '@chakra-ui/react';
 import NavSocialLinks from '@/components/Layout/footer/Web/NavSocialLinks';
 import { socials } from '@prisma/client';
-import { getSocials } from 'services/requests';
+import { getSocials, sendMail } from 'services/requests';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 import InputForm from '@/components/Main-Content/Contact/components/InputForm';
 import IconCopyTool from '@/components/Main-Content/Contact/components/ToolTIp';
 import MailPhoneBox from '@/components/Main-Content/Contact/components/MailPhoneBox';
 
+export type form = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 export default function ContactWrapper(): JSX.Element {
+  const actualBreakpoint = useBreakpointValue({
+    base: 'base',
+    sm: 'sm',
+    md: 'md',
+    lg: 'lg',
+    xl: 'xl',
+  });
+  
+  const mailValidation = (email: string) => {
+    const regex = '^(.+)@(.+)$'
+    return email.match(regex)
+  }
+
   const successToast: ToastProps = {
     title: 'Mensagem enviada com sucesso!',
     description: 'Em breve entrarei em contato com você.',
@@ -31,7 +52,7 @@ export default function ContactWrapper(): JSX.Element {
 
   const fieldToast: ToastProps = {
     title: 'Preencha todos os campos!',
-    description: 'Por favor, preencha todos os campos obrigatórios',
+    description: 'Por favor, preencha todos os campos obrigatórios com dados válidos.',
     status: 'error',
     duration: 5000,
     position: 'top',
@@ -49,11 +70,7 @@ export default function ContactWrapper(): JSX.Element {
 
   const toast = useToast();
   const [socials, setSocials] = useState<socials[]>([]);
-  // const [isDisabled, setIsDisabled] = useState<boolean>(true); 
   const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
-  // const [isSuccess, setIsSuccess] = useState<boolean>(false);
-  // const [isError, setIsError] = useState<boolean>(false);
-
   const [forms, setForms] = useState({
     name: '',
     email: '',
@@ -70,25 +87,21 @@ export default function ContactWrapper(): JSX.Element {
   };
 
   const handleSubmitOnClick = (e: React.FormEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (forms.name && forms.email && forms.message) {
-      setIsSubmiting(true);
-      console.log(forms);
-      setTimeout(() => {
-        setIsSubmiting(false);
-        setForms({ name: '', email: '', message: '' });
+  e.preventDefault();
+  if (forms.name && forms.email && forms.message && mailValidation(forms.email)) {
+    setIsSubmiting(true);
+    sendMail(forms)
+      .then(() => {
         toast(successToast);
-      }, 3000);
-    }
-    else {
-      if(!forms.name || !forms.email || !forms.message) {
-        toast(fieldToast);
-      }
-      else {
-        toast(errorToast);
-      }
-    }
-  };
+          setForms({ name: '', email: '', message: '' });
+        })
+      .catch(() => toast(errorToast))
+      .finally(() => setIsSubmiting(false));
+  } else {
+    toast(fieldToast);
+  }
+};
+
 
   return (
     <Flex
@@ -105,6 +118,7 @@ export default function ContactWrapper(): JSX.Element {
       <Box
         borderRadius="lg"
         marginY={10}
+        marginX={10}
         >
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 10 }}>
@@ -129,6 +143,12 @@ export default function ContactWrapper(): JSX.Element {
                   <NavSocialLinks socials={socials} />
                 </Stack>
                   <MailPhoneBox />
+                  {actualBreakpoint === 'base' || actualBreakpoint === 'sm' || actualBreakpoint === 'md' ? (
+                    <Text>
+                      Os icones abaixo podem ser usados para copiar tanto meu email quanto telefone.
+                    </Text>
+                    ) : null
+                  }
                   <Stack
                     spacing={{ base: 4, md: 8 }}
                     direction='row'
@@ -141,9 +161,9 @@ export default function ContactWrapper(): JSX.Element {
                   <Heading fontSize="xl">
                     Ou, se preferir, preencha o formulário abaixo e me envie uma mensagem.
                   </Heading>
-                  <InputForm isDisabled={isSubmiting} value={forms.name} handleOnChange={handleChanges} isRequired label='name' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />
-                  <InputForm isDisabled={isSubmiting} value={forms.email} handleOnChange={handleChanges} isRequired label='email' name='email' type='email' placeholder='Email' leftIcon={<MdOutlineEmail />} />
-                  <InputForm isDisabled={isSubmiting} value={forms.message} handleOnChange={handleChanges} isRequired label='message' name='message' type='text' placeholder='Mensagem' isTextArea />
+                  <InputForm isDisabled={isSubmiting} value={forms.name} handleOnChange={handleChanges} isRequired label='Nome' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />
+                  <InputForm isDisabled={isSubmiting} value={forms.email} handleOnChange={handleChanges} isRequired label='Email' name='email' type='email' placeholder='Email' leftIcon={<MdOutlineEmail />} />
+                  <InputForm isDisabled={isSubmiting} value={forms.message} handleOnChange={handleChanges} isRequired label='Mensagem' name='message' type='text' placeholder='Mensagem' isTextArea />
                   <Button
                     loadingText="Enviando..."
                     isLoading={isSubmiting}

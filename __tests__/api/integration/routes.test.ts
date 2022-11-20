@@ -12,7 +12,6 @@ describe('./pages/api/routes', () => {
     expect(routes[length - 1]).toHaveProperty('id');
     expect(routes[length - 1]).toHaveProperty('name');
     expect(routes[length - 1]).toHaveProperty('path');
-    console.log(length);
   })
   it('should create a route', async () => {
     const salt = Math.floor(Math.random() * 1000000);
@@ -25,6 +24,5 @@ describe('./pages/api/routes', () => {
     expect(route).toHaveProperty('id');
     expect(route).toHaveProperty('name');
     expect(route).toHaveProperty('path');
-    console.log(route);
   });
 })

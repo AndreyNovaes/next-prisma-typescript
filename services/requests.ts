@@ -1,4 +1,17 @@
+import { form } from '@/components/Main-Content/Contact';
+
 const baseURL = 'http://localhost:3000/api';
+
+export async function sendMail({ name, email, message }: form) {
+  const response = await fetch(`${baseURL}/mail`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, email, message }),
+  });
+  return response.json();
+}
 
 export async function getSocials() {
   try {
