@@ -1,6 +1,6 @@
 import { form } from '@/components/Main-Content/Contact';
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = process.env.BASE_URL;
 
 export async function sendMail({ name, email, message }: form) {
   const response = await fetch(`${baseURL}/mail`, {
