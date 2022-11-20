@@ -1,6 +1,6 @@
 import { form } from '@/components/Main-Content/Contact';
 
-const baseURL = 'http://andrey-novaes.me';
+const baseURL = 'http://andrey-novaes.me/api';
 
 export async function sendMail({ name, email, message }: form) {
   const response = await fetch(`${baseURL}/mail`, {
