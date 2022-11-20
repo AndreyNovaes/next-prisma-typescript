@@ -11,6 +11,7 @@ export default function TextBox(): JSX.Element {
     <>
       <Stack spacing="4" maxW={{ base:'lg', sm:'lg', md: '2xl', lg: '4xl'}} margin='1rem'>
         <Heading 
+          as='h1'
           mt={{ base: '4', md: '8' }}
           fontSize={{ base: '3xl', md: '4xl' }}
           fontWeight="extrabold"

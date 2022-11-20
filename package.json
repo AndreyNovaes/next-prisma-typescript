@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
@@ -36,6 +37,7 @@
     "@vercel/analytics": "^0.1.5",
     "framer-motion": "^6.5.1",
     "next": "13.0.1",
+    "next-sitemap": "^3.1.32",
     "nodemailer": "^6.8.0",
     "nodemailer-mailgun-transport": "^2.1.5",
     "react": "18.2.0",

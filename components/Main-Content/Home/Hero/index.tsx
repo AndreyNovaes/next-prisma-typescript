@@ -13,12 +13,13 @@ import nextLink from 'next/link';
 export default function Hero(): JSX.Element {
   return (
     <>
-      <Container maxW={{ base: 'xl', md: ' 4xl',}}>
+      <Container maxW={{ base: 'xl', lg: ' 4xl',}}>
         <Stack
           as={Box}
           textAlign={'center'}>
 
           <Heading
+            as='h1'
             fontWeight='extrabold'
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>

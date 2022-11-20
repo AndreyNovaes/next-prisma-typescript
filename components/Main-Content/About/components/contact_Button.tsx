@@ -5,7 +5,7 @@ import React from 'react'
 export default function ContactButton() {
   return (
     <>
-      <Heading as='h2' size='lg' marginTop='20px'>
+      <Heading as='h1' size='lg' marginTop='20px'>
         Quer saber mais sobre mim ?
       </Heading>
       <Button

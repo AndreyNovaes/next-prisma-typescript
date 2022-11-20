@@ -123,6 +123,7 @@ export default function ContactWrapper(): JSX.Element {
         <Box>
           <VStack spacing={{ base: 4, md: 8, lg: 10 }}>
             <Heading
+              as="h1"
               fontSize={{
                 base: '4xl',
                 md: '5xl',
@@ -158,7 +159,7 @@ export default function ContactWrapper(): JSX.Element {
                     <IconCopyTool type='email' value='andreynovaespro@gmail.com' />
                     <IconCopyTool type='telefone' value='+55 21 99431-2856' />
                   </Stack>
-                  <Heading fontSize="xl">
+                  <Heading fontSize="xl" as={'h2'}>
                     Ou, se preferir, preencha o formulário abaixo e me envie uma mensagem.
                   </Heading>
                   <InputForm isDisabled={isSubmiting} value={forms.name} handleOnChange={handleChanges} isRequired label='Nome' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />

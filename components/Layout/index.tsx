@@ -16,8 +16,8 @@ export default function Layout({ children }: React.PropsWithChildren): JSX.Eleme
   return (
     <>
       <Head>
-        <title>Andrey Novaes</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <title>Andrey Novaes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </Head>
       <ChakraProvider theme={theme}>
         <Flex direction="column" minH="100vh">
