@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "sitemap": "next-sitemap",
     "start": "next start",
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
