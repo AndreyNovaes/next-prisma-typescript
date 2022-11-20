@@ -1,6 +1,6 @@
 import { form } from '@/components/Main-Content/Contact';
 
-const baseURL = process.env.BASE_URL;
+const baseURL = process.env.BASE_URL || 'https://andrey-novaes.me/api'
 
 export async function sendMail({ name, email, message }: form) {
   const response = await fetch(`${baseURL}/mail`, {
@@ -15,7 +15,7 @@ export async function sendMail({ name, email, message }: form) {
 
 export async function getSocials() {
   try {
-    const response = await fetch(`${baseURL}/socials`, {
+    const response = await fetch(`${process.env.BASE_URL}/socials`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       cache: 'force-cache'
