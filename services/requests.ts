@@ -32,7 +32,7 @@ export async function getSocials() {
 
 export async function getProjects() {
   try {
-    const response = await fetch(`${baseURL}/projects`);
+    const response = await fetch(`${baseURL}/projects`, { cache: 'force-cache' });
     return response.json();
   }
   catch (error) {
