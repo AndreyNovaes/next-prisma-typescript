@@ -29,11 +29,11 @@ export default function SliderCard({
   };
 
   return (
-    <Center key={id}
-      marginY='25px'
+    <Center key={id}  
+    marginY='25px'
     >
       <Box
-        minH='850px'
+        minH='540px'
         bgColor={bgColorHex}
         filter={{ base: 'brightness(1)', lg: 'grayscale(1)' }}
         _hover={{base: mobileHover, lg: webHover}}
@@ -43,7 +43,7 @@ export default function SliderCard({
             paddingTop="10px"
             src={image}
             alt={title}
-            width="400px"
+            height="200px"
           />
         </Center>
 
