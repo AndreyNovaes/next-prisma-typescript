@@ -34,7 +34,7 @@ export async function getSocials() {
 
 export async function getProjects() {
   try {
-    const response = await fetch(`${baseURL}/projects`, { cache: 'force-cache' });
+    const response = await fetch(`${baseURL}/projects`);
     return response.json();
   }
   catch (error) {
