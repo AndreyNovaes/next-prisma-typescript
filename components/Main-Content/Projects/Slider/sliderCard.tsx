@@ -27,60 +27,82 @@ export default function SliderCard({
   transitionTimingFunction: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
   };
 
-  const colorSwitch = (tag: string) => {
-    switch (tag) {
-      case 'React':
-        return '#61dafb';
-      case 'Next.js':
-        return 'whiteAlpha.900';
-      case 'Chakra UI':
-        return 'teal';
-      case 'Javascript':
-        return 'yellow.400';
-      case 'Typescript':
-        return 'blue.300';
-      case 'Prisma':
-        return 'purple.300';
-      case 'Node':
-        return 'green.400';
-      case 'Express':
-        return 'white';
-      case 'PostgreSQL':
-        return 'blue.100';
-      case 'Sequelize':
-        return '#54c7ec';
-      case 'Docker':
-        return '#0693e3';
-      case 'Redux':
-        return '#764abc';
-      case 'MySQL':
-        return '#f29111';
-      case 'Jest':
-        return '#cfaa00';
-      case 'React Testing Library':
-        return '#cfaa00';
-      case 'Mocha':
-        return '#8dd6f9';
-      case 'Chai':
-        return '#8dd6f9';
-      case 'Sinon':
-        return '#8dd6f9';
-      case 'Algoritmos':
-        return 'pink.300';
-      case 'Git':
-        return 'white';
-      case 'Estruturas de Dados':
-        return 'gray.300';
-      case 'HTML':
-        return 'orange';
-      case 'CSS':
-        return 'blue.400';
-      case 'ESlint':
-        return 'pink';
-    default:
-      return 'gray';
-    }
-  };
+  const reactColor = useColorModeValue('blue.500', 'blue.300');
+const nextColor = useColorModeValue('black', 'white');
+const chakraColor = useColorModeValue('teal.500', 'teal.300');
+const javascriptColor = useColorModeValue('yellow.400', 'yellow.300');
+const typescriptColor = useColorModeValue('blue.400', 'blue.300');
+const prismaColor = useColorModeValue('purple.500', 'purple.300');
+const nodeColor = useColorModeValue('green.500', 'green.300');
+const expressColor = useColorModeValue('red.500', 'red.300');
+const postgresColor = useColorModeValue('orange.500', 'orange.300');
+const jestColor = useColorModeValue('red.500', 'red.300');
+const htmlColor = useColorModeValue('orange.500', 'orange.300');
+const cssColor = useColorModeValue('blue.500', 'blue.300');
+const reduxColor = useColorModeValue('purple.500', 'purple.300');
+const sequelizeColor = useColorModeValue('blue.500', 'blue.300');
+const dockerColor = useColorModeValue('blue.500', 'blue.300');
+const dataStructureColor = useColorModeValue('purple.500', 'purple.300');
+const algorithmColor = useColorModeValue('red.500', 'red.300');
+const mysqlColor = useColorModeValue('orange.500', 'orange.300');
+const rtlColor = useColorModeValue('blue.500', 'blue.300');
+const mochaColor = useColorModeValue('red.500', 'red.300');
+const chaiColor = useColorModeValue('purple.500', 'purple.300');
+
+
+
+const colorSwitch = (tag: string) => {
+  switch (tag) {
+    case 'React':
+      return reactColor;
+    case 'Next.js':
+      return nextColor;
+    case 'Chakra UI':
+      return chakraColor;
+    case 'Javascript':
+      return javascriptColor;
+    case 'Typescript':
+      return typescriptColor;
+    case 'Prisma':
+      return prismaColor;
+    case 'Node':
+      return nodeColor;
+    case 'Express':
+      return expressColor;
+    case 'PostgreSQL':
+      return postgresColor;
+    case 'Sequelize':
+      return sequelizeColor;
+    case 'Docker':
+      return dockerColor;
+    case 'Redux':
+      return reduxColor;
+    case 'MySQL':
+      return mysqlColor;
+    case 'Jest':
+      return jestColor;
+    case 'React Testing Library':
+      return rtlColor;
+    case 'Mocha':
+      return mochaColor;
+    case 'Chai':
+      return chaiColor;
+    case 'Sinon':
+      return chaiColor;
+    case 'Algoritmos':
+      return algorithmColor;
+    case 'Estruturas de Dados':
+      return dataStructureColor;
+    case 'HTML':
+      return htmlColor;
+    case 'CSS':
+      return cssColor;
+    case 'ESlint':
+      return 
+  default:
+    return nextColor;
+  }
+};
 
   return (
     <Center key={id}  
@@ -135,6 +157,7 @@ export default function SliderCard({
               letterSpacing="wide"
               fontSize="xs"
               maxWidth="lg"
+              maxW={{ base: '100%', lg: 'lg' }}
             >
               {tags && tags.map((tag) => (
                 <Tag 
