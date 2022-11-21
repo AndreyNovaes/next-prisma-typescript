@@ -34,7 +34,11 @@ export async function getSocials() {
 
 export async function getProjects() {
   try {
-    const response = await fetch(`${baseURL}/projects`);
+    const response = await fetch(`${baseURL}/projects`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      cache: 'force-cache'
+      });
     return response.json();
   }
   catch (error) {
@@ -47,7 +51,11 @@ export async function getProjects() {
 
 export async function getRoutes() {
   try {
-    const response = await fetch(`${baseURL}/routes`);
+    const response = await fetch(`${baseURL}/routes`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      cache: 'force-cache'
+    });
     return response.json();
   }
   catch (error) {
