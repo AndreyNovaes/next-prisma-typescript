@@ -14,7 +14,6 @@ export default function SliderCard({
   deploy
 }: projects): JSX.Element {
   const colorBox = useColorModeValue('gray.800', 'whiteAlpha.800');
-  const colorTag = useColorModeValue('gray.800', 'whiteAlpha.800');
   const bgColorHex = useColorModeValue('whiteAlpha.900', 'gray.900');
   const webHover = {
   boxShadow: '2xl',
@@ -28,12 +27,68 @@ export default function SliderCard({
   transitionTimingFunction: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
   };
 
+  const colorSwitch = (tag: string) => {
+    switch (tag) {
+      case 'React':
+        return '#61dafb';
+      case 'Next.js':
+        return 'whiteAlpha.900';
+      case 'Chakra UI':
+        return 'teal';
+      case 'Javascript':
+        return 'yellow.400';
+      case 'Typescript':
+        return 'blue.300';
+      case 'Prisma':
+        return 'purple.300';
+      case 'Node':
+        return 'green.400';
+      case 'Express':
+        return 'white';
+      case 'PostgreSQL':
+        return 'blue.100';
+      case 'Sequelize':
+        return '#54c7ec';
+      case 'Docker':
+        return '#0693e3';
+      case 'Redux':
+        return '#764abc';
+      case 'MySQL':
+        return '#f29111';
+      case 'Jest':
+        return '#cfaa00';
+      case 'React Testing Library':
+        return '#cfaa00';
+      case 'Mocha':
+        return '#8dd6f9';
+      case 'Chai':
+        return '#8dd6f9';
+      case 'Sinon':
+        return '#8dd6f9';
+      case 'Algoritmos':
+        return 'pink.300';
+      case 'Git':
+        return 'white';
+      case 'Estruturas de Dados':
+        return 'gray.300';
+      case 'HTML':
+        return 'orange';
+      case 'CSS':
+        return 'blue.400';
+      case 'ESlint':
+        return 'pink';
+    default:
+      return 'gray';
+    }
+  };
+
   return (
     <Center key={id}  
     marginY='25px'
     >
       <Box
-        minH='540px'
+        minH='480px'
+        minHeight='480px'
         bgColor={bgColorHex}
         filter={{ base: 'brightness(1)', lg: 'grayscale(1)' }}
         _hover={{base: mobileHover, lg: webHover}}
@@ -86,7 +141,7 @@ export default function SliderCard({
                 size="md"
                 key={tag}
                 className={tag} 
-                color={colorTag}
+                color={colorSwitch(tag)}
                 margin="5px"
                 >
                   {tag}

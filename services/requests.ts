@@ -1,8 +1,6 @@
 import { form } from '@/components/Main-Content/Contact';
 
-const baseURLPROD = 'https://andrey-novaes.me/api';
-
-const baseURL =  baseURLPROD;
+const baseURL =  process.env.BASE_URL_DEV || 'https://andrey-novaes.me/api';
 
 export async function sendMail({ name, email, message }: form) {
   const response = await fetch(`${baseURL}/mail`, {
@@ -47,7 +45,7 @@ export async function getProjects() {
 
 export async function getRoutes() {
   try {
-    const response = await fetch(`${baseURL}/routes`, {cache: 'force-cache'});
+    const response = await fetch(`${baseURL}/routes`);
     return response.json();
   }
   catch (error) {
