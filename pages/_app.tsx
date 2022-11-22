@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <TransitionBetweenPages>
       <Head>
         <title>Andrey Novaes</title>
+        <link rel="canonical" href="https://andrey-novaes.me/" />
         <meta name="description" content="Portfólio do desenvolvedor Andrey Novaes" />
         <meta property="og:title" content="Andrey Novaes - Portfólio" />
         <meta property="og:description" content="Andrey Novaes - Portfólio" />

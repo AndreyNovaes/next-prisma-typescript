@@ -121,6 +121,7 @@ const colorSwitch = (tag: string) => {
             src={image}
             alt={title}
             height="200px"
+            width="450px"
           />
         </Center>
 
