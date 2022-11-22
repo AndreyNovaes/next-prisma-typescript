@@ -27,7 +27,7 @@ export default function Hero(): JSX.Element {
             <Text as={'span'} color={'blue.400'} >
               <TypewriterComponent
                 options={{
-                  strings: ['Desenvolvedor Full Stack', 'Eterno aprendiz', 'Em busca da excelência', 'Sempre aberto a novos desafios'],
+                  strings: ['Desenvolvedor Web', 'Eterno aprendiz', 'Em busca da excelência', 'Sempre aberto a novos desafios'],
                   autoStart: true,
                   loop: true,
                   deleteSpeed: 50,
