@@ -1,29 +1,21 @@
-import React from 'react';
-import {
-  Box,
-  Menu,
-  MenuButton,
-  MenuList,
-  Button,
-  VStack,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import NavRoutesLink from '../Web/NavRoutesLink';
-import { HamburgerIcon } from '@chakra-ui/icons';
-import { routes } from '@prisma/client';
+// styles
+import { Box, Button, Menu, MenuButton, MenuList, useColorModeValue, VStack } from '@chakra-ui/react';
 import ButtonClickAnimation from '../../../../Animations/ButtonClick';
+// components
+import NavRoutesLink from '../Web/NavRoutesLink';
+// icons
+import { HamburgerIcon } from '@chakra-ui/icons';
+// types
+import { ArrayOfRoutes } from 'services/types/baseTypes';
 
-type props = {
-  routes: routes[];
-};
-
-export default function MenuMobile({routes}: props): JSX.Element {
+export default function MenuMobile({routes}: ArrayOfRoutes): JSX.Element {
   return (
     <Box
       zIndex={1}
       display={{ md: 'none' }}
       bg={useColorModeValue('gray.100', 'gray.900')}
     >
+      {/* mobile hamburguer menu */}
       <Menu>
         <ButtonClickAnimation>
           <MenuButton
@@ -35,6 +27,7 @@ export default function MenuMobile({routes}: props): JSX.Element {
             <HamburgerIcon />
           </MenuButton>
         </ButtonClickAnimation>
+        {/* MenuItems */}
         <MenuList>
           <VStack spacing={4} align="stretch">
             {
@@ -44,7 +37,9 @@ export default function MenuMobile({routes}: props): JSX.Element {
             }
           </VStack>
         </MenuList>
+        {/* MenuItems */}
       </Menu>
+      {/* mobile hamburguer menu */}
     </Box>
   );
 }

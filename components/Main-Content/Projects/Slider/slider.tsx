@@ -1,13 +1,18 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// helpers
+import { useState, useEffect } from 'react';
+// components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { Box } from '@chakra-ui/react';
-import { getProjects } from 'services/requests';
-
-import { projects } from '@prisma/client';
 import SliderCard from './sliderCard';
-
+// styles
+import { Box } from '@chakra-ui/react';
+// requests
+import { getProjects } from 'services/requests';
+// types
+import { Projects } from 'services/types/baseTypes';
+// import Swiper core and required modules with css
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -45,7 +50,7 @@ export default function SliderWrapper() {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
-        {projects.map((project: projects) => (
+        {projects.map((project: Projects) => (
           <SwiperSlide key={project.id}>
             <SliderCard {...project} />
           </SwiperSlide>

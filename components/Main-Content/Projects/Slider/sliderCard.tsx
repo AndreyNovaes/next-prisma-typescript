@@ -1,8 +1,12 @@
 import React from 'react';
+// styles
 import { Box, Text, Button, Image, Tag, useColorModeValue, Center } from '@chakra-ui/react';
+// helpers
 import nextLink from 'next/link';
+// icons
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { projects } from '@prisma/client';
+// types
+import { Projects } from 'services/types/baseTypes';
 
 export default function SliderCard({
   id,
@@ -12,7 +16,7 @@ export default function SliderCard({
   tags,
   github,
   deploy
-}: projects): JSX.Element {
+}: Projects): JSX.Element {
   const colorBox = useColorModeValue('gray.800', 'whiteAlpha.800');
   const bgColorHex = useColorModeValue('whiteAlpha.900', 'gray.900');
   const webHover = {
@@ -48,8 +52,6 @@ const mysqlColor = useColorModeValue('orange.500', 'orange.300');
 const rtlColor = useColorModeValue('blue.500', 'blue.300');
 const mochaColor = useColorModeValue('red.500', 'red.300');
 const chaiColor = useColorModeValue('purple.500', 'purple.300');
-
-
 
 const colorSwitch = (tag: string) => {
   switch (tag) {

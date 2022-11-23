@@ -1,6 +1,8 @@
-import { Button, Heading } from '@chakra-ui/react'
-import nextLink from 'next/link'
 import React from 'react'
+// helpers
+import nextLink from 'next/link'
+// styles
+import { Button, Heading } from '@chakra-ui/react'
 
 export default function ContactButton() {
   return (

@@ -1,7 +1,8 @@
-import { Text, Box, Stack, Tooltip } from '@chakra-ui/react'
 import React from 'react' 
+// styles
+import { Text, Box, Stack, Tooltip } from '@chakra-ui/react'
 
-export default function MailPhoneBox() {
+export default function MailPhoneBox(): JSX.Element {
   
   return (
     <>

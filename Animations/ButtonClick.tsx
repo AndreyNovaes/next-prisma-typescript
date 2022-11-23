@@ -1,4 +1,7 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
+// types
+import { PropsWithChildren } from 'react'
+// styles
 import { motion } from 'framer-motion'
 import { Box } from '@chakra-ui/react'
 

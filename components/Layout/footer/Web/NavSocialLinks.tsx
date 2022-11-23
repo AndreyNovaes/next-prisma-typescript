@@ -1,14 +1,13 @@
-import { Link, useColorModeValue, IconButton } from '@chakra-ui/react'
-import React from 'react'
-import { socials } from '@prisma/client'
-import {
-  AiFillGithub,
-  AiFillLinkedin,
-} from 'react-icons/ai';
+// icons
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaWhatsapp } from 'react-icons/fa';
+// types
+import { ArrayOfSocials } from 'services/types/baseTypes';
+// styles
+import { IconButton, Link, useColorModeValue } from '@chakra-ui/react';
 import ButtonClickAnimation from '../../../../Animations/ButtonClick';
 
-export default function NavSocialLinks({ socials }: { socials: socials[] }): JSX.Element {
+export default function NavSocialLinks({ socials }: ArrayOfSocials): JSX.Element {
   const iconBackgroundColor = useColorModeValue('gray.200', 'gray.700')
   return (
     <>

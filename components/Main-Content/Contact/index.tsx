@@ -1,75 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Stack,
-  useColorModeValue,
-  VStack,
-  useToast,
-  ToastProps,
-  useBreakpointValue,
-  Text,
-} from '@chakra-ui/react';
-import NavSocialLinks from '@/components/Layout/footer/Web/NavSocialLinks';
-import { socials } from '@prisma/client';
+import React from 'react';
+// helpers
+import { useEffect, useState } from 'react';
+// styles
+import { Box, Button, Flex, Heading, Stack, useColorModeValue, VStack, useToast, useBreakpointValue, Text } from '@chakra-ui/react';
+// requests
 import { getSocials, sendMail } from 'services/requests';
+// icons
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
+// components
+import NavSocialLinks from '@/components/Layout/footer/Web/NavSocialLinks';
 import InputForm from '@/components/Main-Content/Contact/components/InputForm';
 import IconCopyTool from '@/components/Main-Content/Contact/components/ToolTIp';
 import MailPhoneBox from '@/components/Main-Content/Contact/components/MailPhoneBox';
-
-export type form = {
-  name: string;
-  email: string;
-  message: string;
-};
+import { errorToast, fieldToast, successToast } from 'utils/Toasts';
+import { Socials } from 'services/types/baseTypes';
+import { mailValidator } from 'utils/mailValidator';
 
 export default function ContactWrapper(): JSX.Element {
-  const actualBreakpoint = useBreakpointValue({
-    base: 'base',
-    sm: 'sm',
-    md: 'md',
-    lg: 'lg',
-    xl: 'xl',
-  });
-  
-  const mailValidation = (email: string) => {
-    const regex = '^(.+)@(.+)$'
-    return email.match(regex)
-  }
-
-  const successToast: ToastProps = {
-    title: 'Mensagem enviada com sucesso!',
-    description: 'Em breve entrarei em contato com você.',
-    status: 'success',
-    duration: 5000,
-    position: 'top',
-    isClosable: true,
-  };
-
-  const fieldToast: ToastProps = {
-    title: 'Preencha todos os campos!',
-    description: 'Por favor, preencha todos os campos obrigatórios com dados válidos.',
-    status: 'error',
-    duration: 5000,
-    position: 'top',
-    isClosable: true,
-  };
-
-  const errorToast: ToastProps = {
-    title: 'Erro inesperado',
-    description: 'Por favor, tente novamente mais tarde',
-    status: 'error',
-    duration: 5000,
-    position: 'top',
-    isClosable: true,
-  };
 
   const toast = useToast();
-  const [socials, setSocials] = useState<socials[]>([]);
+  const [socials, setSocials] = useState<Socials[]>([]);
   const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
   const [forms, setForms] = useState({
     name: '',
@@ -81,14 +32,15 @@ export default function ContactWrapper(): JSX.Element {
     getSocials().then((data) => setSocials(data));
   }, []);
 
+  const actualBreakpoint = useBreakpointValue({ base: 'base', sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' });
+
   const handleChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForms({ ...forms, [name]: value });
   };
 
-  const handleSubmitOnClick = (e: React.FormEvent<HTMLButtonElement>) => {
-  e.preventDefault();
-  if (forms.name && forms.email && forms.message && mailValidation(forms.email)) {
+  const handleSubmitOnClick = () => {
+  if (forms.name && forms.email && forms.message && mailValidator(forms.email)) {
     setIsSubmiting(true);
     sendMail(forms)
       .then(() => {
@@ -101,7 +53,6 @@ export default function ContactWrapper(): JSX.Element {
     toast(fieldToast);
   }
 };
-
 
   return (
     <Flex
@@ -162,9 +113,35 @@ export default function ContactWrapper(): JSX.Element {
                   <Heading fontSize="xl" as={'h2'}>
                     Ou, se preferir, preencha o formulário abaixo e me envie uma mensagem.
                   </Heading>
-                  <InputForm isDisabled={isSubmiting} value={forms.name} handleOnChange={handleChanges} isRequired label='Nome' name='name' type='text' placeholder='Nome' leftIcon={<BsPerson />} />
-                  <InputForm isDisabled={isSubmiting} value={forms.email} handleOnChange={handleChanges} isRequired label='Email' name='email' type='email' placeholder='Email' leftIcon={<MdOutlineEmail />} />
-                  <InputForm isDisabled={isSubmiting} value={forms.message} handleOnChange={handleChanges} isRequired label='Mensagem' name='message' type='text' placeholder='Mensagem' isTextArea />
+                  <InputForm 
+                    isError={false} 
+                    isDisabled={isSubmiting} 
+                    value={forms.name} 
+                    isRequired={true} 
+                    handleOnChange={handleChanges} 
+                    label='Name' 
+                    name='name' 
+                    type='text' 
+                    leftIcon={<BsPerson />} />
+                  <InputForm 
+                    isError={false} 
+                    isDisabled={isSubmiting}
+                    value={forms.email}
+                    isRequired={true}
+                    handleOnChange={handleChanges}
+                    label='Email'
+                    name='email'
+                    type='email'
+                    leftIcon={<MdOutlineEmail/>} /> 
+                  <InputForm 
+                    isError={false}
+                    isRequired={true}
+                    isDisabled={isSubmiting}
+                    type='text'
+                    value={forms.message}
+                    handleOnChange={handleChanges}
+                    label='Mensagem'
+                    name='message' />
                   <Button
                     loadingText="Enviando..."
                     isLoading={isSubmiting}

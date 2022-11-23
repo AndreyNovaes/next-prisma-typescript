@@ -1,5 +1,7 @@
 import React from 'react'
+// styles
 import { AnimatePresence, motion } from 'framer-motion'
+// helpers
 import { useRouter } from 'next/router'
 
 export default function TransitionBetweenPages({ children }: React.PropsWithChildren<Record<string, unknown>>) {

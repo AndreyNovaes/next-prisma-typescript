@@ -1,21 +1,14 @@
-import React from 'react';
+// components
+import MenuMobile from './Mobile/Menu';
 import ColorModeSwitcher from './Web/ColorModeSwitcher';
 import NavRoutesLink from './Web/NavRoutesLink';
-import {
-  Box,
-  Flex,
-  HStack,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import MenuMobile from './Mobile/Menu';
-import { routes } from '@prisma/client';
+// styles
+import { Box, Flex, HStack, useColorModeValue } from '@chakra-ui/react';
 import ButtonClickAnimation from '../../../Animations/ButtonClick';
+// types
+import { ArrayOfRoutes } from 'services/types/baseTypes';
 
-type props = {
-  routes: routes[];
-};
-
-export default function Nav({ routes }: props): JSX.Element {
+export default function Nav({ routes }: ArrayOfRoutes): JSX.Element {
   const navBackgroundColor = useColorModeValue('gray.200', 'gray.700')
   return (
     <Box
@@ -30,7 +23,7 @@ export default function Nav({ routes }: props): JSX.Element {
     >
 
     <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-      {/* Web Menu routes */}
+      {/* Web Nav internal routes */}
       <HStack 
           as={'nav'}
           spacing={4}
@@ -47,11 +40,11 @@ export default function Nav({ routes }: props): JSX.Element {
           ))
         }
       </HStack>
-      {/* Web Menu routes */}
+      {/* Web Nav internal routes */}
 
-      {/* Menu Mobile (Hamburger) */}
+      {/* Menu Mobile (Hamburger icon) */}
       <MenuMobile routes={routes} />
-      {/* Menu Mobile (Hamburger) */}
+      {/* Menu Mobile (Hamburger icon) */}
       
       {/* Color mode switcher */}
         <ButtonClickAnimation>

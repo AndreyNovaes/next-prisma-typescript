@@ -1,9 +1,7 @@
-import {
-  Box, Heading,
-  Link,
-  Stack,
-  Text, useColorModeValue
-} from '@chakra-ui/react';
+import React from 'react';
+// styles
+import { Box, Heading, Link, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+// helpers
 import nextLink from 'next/link';
 
 export default function TextBox(): JSX.Element {

@@ -1,7 +1,6 @@
 import React from 'react';
-import {
-  Text,
-} from '@chakra-ui/react';
+// styles
+import { Text } from '@chakra-ui/react';
 
 export default function TextDocRights() {
   return (

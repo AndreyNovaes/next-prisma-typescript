@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-  Box,
-  Heading,
-  Container,
-  Text,
-  Button,
-  Stack,
-} from '@chakra-ui/react';
-import TypewriterComponent from 'typewriter-effect';
+// styles
+import { Box, Heading, Container, Text, Button, Stack } from '@chakra-ui/react';
+// helpers
 import nextLink from 'next/link';
+// components
+import TypewriterComponent from 'typewriter-effect';
 
 export default function Hero(): JSX.Element {
   return (

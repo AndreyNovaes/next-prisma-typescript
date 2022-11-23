@@ -1,8 +1,10 @@
 import React from 'react'
+// components
 import TextBox from './components/textBox'
 import ImageBox from './components/imageBox'
-import { Box, Flex } from '@chakra-ui/react'
 import ContactButton from './components/contact_Button'
+// styles
+import { Box, Flex } from '@chakra-ui/react'
 
 export default function AboutWrapper(): JSX.Element {
   return (

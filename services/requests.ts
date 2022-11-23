@@ -1,10 +1,12 @@
-import { form } from '@/components/Main-Content/Contact';
+import { formProps } from './types/inputProps';
 
-const baseURLPROD = 'https://andrey-novaes.me/api';
+const prodURL = 'https://andrey-novaes.me/api/';
 
-const baseURL = baseURLPROD;
+const baseURLPROD = 'http://localhost:3000/api';
 
-export async function sendMail({ name, email, message }: form) {
+const baseURL = prodURL || baseURLPROD;
+
+export async function sendMail({ name, email, message }: formProps ) {
   const response = await fetch(`${baseURL}/mail`, {
     method: 'POST',
     headers: {

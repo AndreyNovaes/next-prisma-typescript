@@ -1,13 +1,12 @@
+// styles
 import { IconButton, Tooltip, useClipboard, useColorModeValue } from '@chakra-ui/react'
-import React from 'react'
+// icons
 import { MdEmail, MdPhone } from 'react-icons/md'
+// types
+import { IconCopyToolProps } from 'services/types/iconCopyTool'
 
-type IconCopyToolProps = {
-  type: string
-  value: string
-}
 
-export default function IconCopyTool ({ type, value }: IconCopyToolProps) {
+export default function IconCopyTool ({ type, value }: IconCopyToolProps): JSX.Element {
   const toolTipColor = useColorModeValue('whiteAlpha.900', 'gray.900')
   const { hasCopied, onCopy } = useClipboard(value)
 
