@@ -1,12 +1,15 @@
 import React from 'react'
-import type { AppProps } from 'next/app'
+// components
 import Layout from '../components/Layout'
-import TransitionBetweenPages from 'Animations/transitionBetweenPages'
-import { Analytics } from '@vercel/analytics/react';
+// helpers
 import Head from 'next/head';
+import { Analytics } from '@vercel/analytics/react';
+// styles
+import TransitionBetweenPages from 'Animations/transitionBetweenPages'
+// types
+import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
-
   return (
     <TransitionBetweenPages>
       <Head>
