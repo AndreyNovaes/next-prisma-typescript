@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import Nav from '@/components/Layout/Nav';
-import routes from '../../__mocks__/dataMocks'
+import routes from '../../../__mocks__/dataMocks'
 
 // this mocks next router, so activeLink(uses next/router) responds well
 jest.mock('next/router', () => ({
@@ -15,7 +15,7 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Nav component tests', () => {    
-  test('this component render in every page as layout inside _app ./pages/_app', () => {
+  test('./pages/_app', () => {
     // NavBar buttons
     const { getByRole } = render(<Nav routes={routes.withId.routes} />);
     const buttonHome = getByRole('link', { name: /Home/i });

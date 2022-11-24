@@ -31,9 +31,9 @@ export default function Nav({ routes }: ArrayOfRoutes): JSX.Element {
           display={{ base: 'none', md: 'flex' }}
         >
         {
-          routes && routes.map(({ id, name, path }) => (
+          routes && routes.map(({id, name, path}) => (
             <ButtonClickAnimation key={id}>
-              <Box key={id} _hover={{ bg: navBackgroundColor }} rounded='full'>
+              <Box _hover={{ bg: navBackgroundColor }} rounded='full'>
                 <NavRoutesLink id={id} name={name} path={path} />
               </Box>
             </ButtonClickAnimation>

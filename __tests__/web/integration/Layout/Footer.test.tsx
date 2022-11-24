@@ -1,19 +1,19 @@
 import { render } from '@testing-library/react';
 import Footer from '@/components/Layout/footer';
-import { getSocials } from '../../../services/requests';
+import { getSocials } from '../../../../services/requests';
 import { Socials } from 'services/types/baseTypes';
-import dataMocks from '../../__mocks__/dataMocks';
+import dataMocks from '../../../__mocks__/dataMocks';
 import { useEffect, useState } from 'react';
 
-jest.mock('../../../services/requests');
+jest.mock('../../../../services/requests');
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useEffect: jest.fn(),
   useState: jest.fn(),
 }));
 
-describe('Footer', () => {
-  it('should render correctly', () => {
+describe('Footer component tests', () => {
+  it('./components/layout/footer', () => {
     const heroGithub = 'https://github.com/AndreyNovaes'
     const heroLinkedin = 'https://www.linkedin.com/in/andrey-de-novaes'
     const heroWhatsapp = 'https://api.whatsapp.com/send?phone=5521994312856'

@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import Home from '../../../pages/index';
 
 describe('Hero component tests', () => {
-  test('/pages/index.tsx Hero component tests - Main-content in homepage', () => {
+  test('/pages/index.tsx', () => {
     const heroHeadingText = /olá, eu sou o andrey/i;
     const descriptionText = /busco, por meio da tecnologia, estimular a excelência, da mesma forma que fui estimulado pelos meus mentores\./i;
     const { getByText, getByRole } = render(<Home />);

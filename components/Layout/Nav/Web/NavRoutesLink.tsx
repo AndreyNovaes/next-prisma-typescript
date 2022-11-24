@@ -1,10 +1,10 @@
 import React from 'react';
 import { useColorModeValue, Link } from '@chakra-ui/react';
 import LinkNext from 'next/link';
-import { routes } from '@prisma/client';
 import { useRouter } from 'next/router';
+import { Routes } from 'services/types/baseTypes';
 
-export default function NavRoutesLink({ id, path, name }: routes): JSX.Element {
+export default function NavRoutesLink({ id, path, name }: Routes): JSX.Element {
   const router = useRouter();
   const isActive = router.pathname === path;
   const activeColor = useColorModeValue('gray.300', 'gray.600');
