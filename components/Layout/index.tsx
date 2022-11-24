@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 // types
 import { PropsWithChildren } from 'react'
 // styles
-import theme from '../Theme'
+import theme from '../../Theme'
 import { Box, ChakraProvider, Flex, Spacer } from '@chakra-ui/react'
 // components
 import Footer from './footer'

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Box, Container, Stack, useColorModeValue } from '@chakra-ui/react';
 // components
 import TextDocRights from './Web/TextDocRights';
-import NavSocialLinks from './Web/NavSocialLinks';
+import FooterSocialLinks from './Web/FooterSocialLinks';
 // requests
 import { getSocials } from '../../../services/requests';
 
@@ -36,7 +36,7 @@ export default function Footer() {
         {/* text all rights reserved, left of the footer */}
         {/* SVG social external Links, right of the footer */}
         <Stack direction={'row'} spacing={6}>
-          <NavSocialLinks socials={socials} />
+          <FooterSocialLinks socials={socials} />
         </Stack>
         {/* SVG social external Links, right of the footer */}
       </Container>

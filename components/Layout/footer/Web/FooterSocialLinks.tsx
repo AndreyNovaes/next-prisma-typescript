@@ -7,7 +7,7 @@ import { ArrayOfSocials } from 'services/types/baseTypes';
 import { IconButton, Link, useColorModeValue } from '@chakra-ui/react';
 import ButtonClickAnimation from '../../../../Animations/ButtonClick';
 
-export default function NavSocialLinks({ socials }: ArrayOfSocials): JSX.Element {
+export default function FooterSocialLinks({ socials }: ArrayOfSocials): JSX.Element {
   const iconBackgroundColor = useColorModeValue('gray.200', 'gray.700')
   return (
     <>
