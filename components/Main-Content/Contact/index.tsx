@@ -9,7 +9,7 @@ import { getSocials, sendMail } from 'services/requests';
 import { BsPerson } from 'react-icons/bs';
 import { MdOutlineEmail } from 'react-icons/md';
 // components
-import NavSocialLinks from '@/components/Layout/footer/Web/NavSocialLinks';
+import FooterSocialLinks from '@/components/Layout/footer/Web/FooterSocialLinks';
 import InputForm from '@/components/Main-Content/Contact/components/InputForm';
 import IconCopyTool from '@/components/Main-Content/Contact/components/ToolTIp';
 import MailPhoneBox from '@/components/Main-Content/Contact/components/MailPhoneBox';
@@ -92,7 +92,7 @@ export default function ContactWrapper(): JSX.Element {
                   direction='row'
                   spacing={10}
                   >
-                  <NavSocialLinks socials={socials} />
+                  <FooterSocialLinks socials={socials} />
                 </Stack>
                   <MailPhoneBox />
                   {actualBreakpoint === 'base' || actualBreakpoint === 'sm' || actualBreakpoint === 'md' ? (
