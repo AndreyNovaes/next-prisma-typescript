@@ -21,6 +21,6 @@
       // "@/styles/*": ["styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts", "__tests__/TestServer.env", "__tests__/handleData.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts", "__tests__/TestServer.env", "__tests__/handleData.js", "__tests__/web/unit/TextDocRights.test.tss"],
   "exclude": ["node_modules"]
 }
