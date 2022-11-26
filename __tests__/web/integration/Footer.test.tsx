@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 import Footer from '@/components/Layout/footer';
-import { getSocials } from '../../../../services/requests';
+import { getSocials } from '../../../services/requests';
 import { Socials } from 'services/types/baseTypes';
-import dataMocks from '../../../__mocks__/dataMocks';
+import dataMocks from '../../__mocks__/dataMocks';
 import { useEffect, useState } from 'react';
 
-jest.mock('../../../../services/requests');
+jest.mock('../../../services/requests');
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useEffect: jest.fn(),

@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react'
 // types
 import { PropsWithChildren } from 'react'
 // styles
-import theme from '../../Theme'
-import { Box, ChakraProvider, Flex, Spacer } from '@chakra-ui/react'
+import { Box, Flex, Spacer } from '@chakra-ui/react'
 // components
 import Footer from './footer'
 import Nav from './Nav'
@@ -21,30 +20,19 @@ export default function Layout({ children }: PropsWithChildren): JSX.Element {
 
   return (
     <>
-      <ChakraProvider theme={theme}>
-        <Flex direction="column" minH="100vh">
-          {/* Nav */}
-          <Box as="nav">
-            <Nav routes={routes} />
-          </Box>
-          {/* Nav */}
-
-          <Spacer />
-          {/* Main-content */}
-          <Box as="main">
-            {children}
-          </Box>
-          {/* Main-content */}
-
-          <Spacer />
-          {/* Footer */}
-          <Box as="footer">
-            <Footer />
-          </Box>
-          {/* Footer */}
-
-        </Flex>
-      </ChakraProvider>
+      <Flex direction="column" minH="100vh">
+        <Box as="nav">
+          <Nav routes={routes} />
+        </Box>
+        <Spacer />
+        <Box as="main">
+          {children}
+        </Box>
+        <Spacer />
+        <Box as="footer">
+          <Footer />
+        </Box>
+      </Flex>
     </>
   )
 }
