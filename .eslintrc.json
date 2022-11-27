@@ -4,6 +4,7 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended"
   ],
+  "ignorePatterns": ["node_modules/", "__tests__/*", "dist/", "build/", "coverage/", "public/", "cypress/"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
