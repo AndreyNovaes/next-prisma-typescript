@@ -17,7 +17,7 @@ export default function IconCopyTool ({ type, value }: IconCopyToolProps): JSX.E
       closeOnClick={false}
       hasArrow>
         <IconButton
-        aria-label="email"
+        aria-label={`Copiar ${type}`}
         variant="ghost"
         size="lg"
         fontSize="3xl"
