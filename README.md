@@ -15,6 +15,7 @@
 - PostgreSQL;
 - Jest;
 - React Testing Library;
+- Cypress
 
 # 💻 How to run
 
