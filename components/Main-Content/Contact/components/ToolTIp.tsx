@@ -5,7 +5,6 @@ import { MdEmail, MdPhone } from 'react-icons/md'
 // types
 import { IconCopyToolProps } from 'services/types/iconCopyTool'
 
-
 export default function IconCopyTool ({ type, value }: IconCopyToolProps): JSX.Element {
   const toolTipColor = useColorModeValue('whiteAlpha.900', 'gray.900')
   const { hasCopied, onCopy } = useClipboard(value)
