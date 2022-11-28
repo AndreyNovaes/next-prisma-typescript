@@ -1,6 +1,10 @@
 import { formProps } from './types/inputProps';
 
-const baseURL = process.env.API_URL || 'http://localhost:3000/api';
+const prodURL = 'https://andrey-novaes.me/api';
+
+const devURL =  'http://localhost:3000/api';
+
+const baseURL = prodURL || devURL;
 
 export async function sendMail({ name, email, message }: formProps ) {
   const response = await fetch(`${baseURL}/mail`, {
