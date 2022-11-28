@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import TextBox from '@/components/Main-Content/About/components/textBox';
 
-describe('TextBox', () => {
-  it('should render correctly', () => {
+describe('TextBox component test', () => {
+  it('/about', () => {
     const { getByText, getByRole } = render(<TextBox />);
     expect(getByRole('heading', { name: /como conheci a programação/i })).toBeInTheDocument();
     expect(getByText(/Hoje, já formado pela Trybe, busco novas oportunidades para continuar aprendendo, pretendo, quando tiver uma maior senioridade, ajudar pessoas que estão começando agora como eu, tentando sempre tornar algo que é difícil e complicado, simples e fácil./i)).toBeInTheDocument();

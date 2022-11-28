@@ -23,7 +23,7 @@ export default function InputForm({ isError, isDisabled, value, handleOnChange, 
             as={ name === 'message' ? 'textarea' : 'input' }
             height={ name === 'message' ? '200px' : '40px' }
           />
-        </InputGroup>
+        </InputGroup> 
       </FormControl>
     </>
   )
