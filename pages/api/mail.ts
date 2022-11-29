@@ -1,10 +1,10 @@
-import nodemailer from 'nodemailer';
+// types
 import type { NextApiRequest, NextApiResponse } from 'next';
-import mg, {  AuthOptions } from 'nodemailer-mailgun-transport';
+import { auth } from 'services/types/api/mail';
+// libs helpers
+import nodemailer from 'nodemailer';
+import mg from 'nodemailer-mailgun-transport';
 
-type auth = {
-  auth: AuthOptions
-}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const auth: auth = {
@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       domain: process.env.MAILGUN_DOMAIN,
     },
   };
-  
+
   const nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
   if(req.method === 'POST') {

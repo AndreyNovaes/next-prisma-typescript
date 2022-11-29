@@ -1,4 +1,4 @@
-import { formProps } from './types/inputProps';
+import { formProps } from './types/web/inputProps';
 
 const prodURL = 'https://andrey-novaes.me/api';
 

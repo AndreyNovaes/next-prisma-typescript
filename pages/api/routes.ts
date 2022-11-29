@@ -1,10 +1,12 @@
+// its my prismaClient, what i use to connect to my database
 import { prisma } from '../../lib/prisma'
+// types
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { routes } from '@prisma/client';
+import { Routes } from 'services/types/baseTypes';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<routes[] | routes>
+  res: NextApiResponse<Routes[] | Routes>
 ) {
   // POST method
   if (req.method === 'POST') {

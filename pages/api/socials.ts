@@ -1,10 +1,12 @@
+// its my prismaClient, what i use to connect to my database
 import { prisma } from '../../lib/prisma'
+// types
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { socials } from '@prisma/client';
+import { Socials } from 'services/types/baseTypes';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<socials[] | socials>
+  res: NextApiResponse<Socials[] | Socials>
 ) {
   // POST method
   if (req.method === 'POST') {

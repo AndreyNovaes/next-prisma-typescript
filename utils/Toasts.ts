@@ -1,4 +1,6 @@
 import { ToastProps } from '@chakra-ui/react';
+// ToastProps, used in contact page
+// './components/Main-Content/Contact/index.tsx'
 
 export const successToast: ToastProps = {
     title: 'Mensagem enviada com sucesso!',

@@ -31,7 +31,8 @@ export default function SliderCard({
   transitionTimingFunction: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
   };
 
-  const reactColor = useColorModeValue('blue.500', 'blue.300');
+// todo, organize this code below, it's a mess, and need to be more readable, and inside a jsx scope
+const reactColor = useColorModeValue('blue.500', 'blue.300');
 const nextColor = useColorModeValue('black', 'white');
 const chakraColor = useColorModeValue('teal.500', 'teal.300');
 const javascriptColor = useColorModeValue('yellow.400', 'yellow.300');

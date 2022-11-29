@@ -1,7 +1,6 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import Tooltip from "@/components/Main-Content/Contact/components/ToolTIp";
-import { IconCopyToolProps } from "../../../services/types/iconCopyTool";
+import { render } from "@testing-library/react";
+import { IconCopyToolProps } from "../../../services/types/web/iconCopyTool";
 
 describe("Tooltip", () => {
   test("renders Tooltip component", () => {

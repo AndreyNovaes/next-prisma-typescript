@@ -1,5 +1,8 @@
+// styles
 import { menuAnatomy } from '@chakra-ui/anatomy';
 import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
+// this file modifier the base of my Menu, a component from Chakra UI
+// the Menu component is used in mobile version, './components/Layout/Nav/Mobile/Menu.tsx'
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(menuAnatomy.keys);

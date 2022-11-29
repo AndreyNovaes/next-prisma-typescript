@@ -2,7 +2,7 @@
 import { FormControl, FormLabel, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 // types
 import { PropsWithChildren } from 'react'
-import { InputProps } from 'services/types/inputProps'
+import { InputProps } from '../../../../services/types/web/inputProps'
 
 export default function InputForm({ isError, isDisabled, value, handleOnChange, isRequired, name, type, leftIcon }: PropsWithChildren<InputProps>): JSX.Element {
   return (

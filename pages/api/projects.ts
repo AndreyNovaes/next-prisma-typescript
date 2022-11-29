@@ -1,11 +1,12 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+// its my prismaClient, what i use to connect to my database
 import { prisma } from '../../lib/prisma'
+// types
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { projects } from '@prisma/client'
+import { Projects } from 'services/types/baseTypes';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<projects[] | projects>
+  res: NextApiResponse<Projects[] | Projects>
 ) {
   // POST method
   if (req.method === 'POST') {

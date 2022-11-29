@@ -1,6 +1,7 @@
 import React from 'react';
 // helpers
 import { useEffect, useState } from 'react';
+import { mailValidator } from 'utils/mailValidator';
 // styles
 import { Box, Button, Flex, Heading, Stack, useColorModeValue, VStack, useToast, useBreakpointValue, Text } from '@chakra-ui/react';
 // requests
@@ -13,9 +14,10 @@ import FooterSocialLinks from '@/components/Layout/footer/Web/FooterSocialLinks'
 import InputForm from '@/components/Main-Content/Contact/components/InputForm';
 import IconCopyTool from '@/components/Main-Content/Contact/components/ToolTIp';
 import MailPhoneBox from '@/components/Main-Content/Contact/components/MailPhoneBox';
+// toast types, what is also a component
 import { errorToast, fieldToast, successToast } from 'utils/Toasts';
+// types
 import { Socials } from 'services/types/baseTypes';
-import { mailValidator } from 'utils/mailValidator';
 
 export default function ContactWrapper(): JSX.Element {
 
