@@ -17,6 +17,12 @@
 - React Testing Library;
 - Cypress
 
+# Demo
+### The project is alread deployed on vercel, you can see in this URL:
+```
+https://andrey-novaes.me/
+```
+
 # 💻 How to run
 
 ## :desktop_computer: Locally, on your own computer <br>
@@ -26,15 +32,16 @@
 ```
  git clone https://github.com/AndreyNovaes/next-prisma-typescript.git
  cd next-prisma-typescript
+ npm install
 ```
 
-### Fill the .env, in root, use this command to create it, enter the .env file and fill it with your local PostgreSQL database information
+### Fill the .env variable DATABASE_URL, with your postgreSQL, use this command to create it, enter the .env file and fill it with your local PostgreSQL database information
 
 ```
  cp .env.example .env
 ```
 
-### Build and start your project
+### go to ./services/requests, use the development URL, http://localhost:3000/api
 ```
 npm run build && npm start
 ```
@@ -42,10 +49,5 @@ npm run build && npm start
 ### the app will be running in:
 ```
 http://localhost:3000
-```
-# Demo
-### The project is alread deployed on vercel, you can see in this URL:
-```
-https://andrey-novaes.me/
 ```
 
