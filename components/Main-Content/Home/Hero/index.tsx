@@ -17,7 +17,7 @@ export default function Hero(): JSX.Element {
           <Heading
             as='h1'
             fontWeight='extrabold'
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+            fontSize={{ base: '4xl', md: '4xl', lg: '6xl' }}
             lineHeight={'110%'}>
             Olá, eu sou o Andrey <br />
             <Text as={'span'} color={'blue.400'} >
