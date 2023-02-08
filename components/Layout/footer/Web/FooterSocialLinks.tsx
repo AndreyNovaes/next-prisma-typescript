@@ -1,6 +1,7 @@
 // icons
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FaWhatsapp } from 'react-icons/fa';
+import { RiNewspaperLine } from 'react-icons/ri';
 // types
 import { ArrayOfSocials } from 'services/types/baseTypes';
 // styles
@@ -19,7 +20,7 @@ export default function FooterSocialLinks({ socials }: ArrayOfSocials): JSX.Elem
             href={link}
             isExternal
             aria-label={name}
-            icon={ name === 'Github' ? <AiFillGithub /> : name === 'Linkedin' ? <AiFillLinkedin /> : <FaWhatsapp /> }
+            icon={ name === 'Github' ? <AiFillGithub /> : name === 'Linkedin' ? <AiFillLinkedin /> : name === 'Whatsapp' ? <FaWhatsapp /> : <RiNewspaperLine /> }
             variant="outline"
             size="lg"
             fontSize="30px"
