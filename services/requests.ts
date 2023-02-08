@@ -22,6 +22,7 @@ export async function getSocials() {
     const response = await fetch(`${baseURL}/socials`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
+      cache: 'force-cache'
     })    
     return response.json()
   }
