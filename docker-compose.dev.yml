@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    container_name: portfolio-db-dev
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_DB: portfolio
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: portfolio-app-dev
+    ports:
+      - '3001:3000'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_URL=postgresql://prisma:prisma@db:5432/portfolio
+    depends_on:
+      - db
+    command: sh -c "npm run generate && npm run migrate && npm run dev"
+
+volumes:
+  postgres_data:
