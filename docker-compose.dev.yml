@@ -20,7 +20,10 @@ services:
       dockerfile: Dockerfile.dev
     container_name: portfolio-app-dev
     ports:
-      - '3001:3000'
+      - '${PORT:-3000}:${PORT:-3000}'
+    environment:
+      - PORT=${PORT:-3000}
+      - DATABASE_URL=postgresql://prisma:prisma@db:5432/portfolio
     volumes:
       - .:/app
       - /app/node_modules

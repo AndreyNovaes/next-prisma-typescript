@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p ${PORT:-3000}",
     "build": "next build",
     "sitemap": "next-sitemap",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
     "reset": "npx prisma migrate reset",
