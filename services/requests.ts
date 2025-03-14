@@ -1,12 +1,10 @@
 import { formProps } from './types/web/inputProps';
 
 const prodURL = 'https://andrey-novaes.me/api';
-
-const devURL =  'http://localhost:3000/api';
-
+const devURL = 'http://localhost:3000/api';
 const baseURL = prodURL || devURL;
 
-export async function sendMail({ name, email, message }: formProps ) {
+export async function sendMail({ name, email, message }: formProps) {
   const response = await fetch(`${baseURL}/mail`, {
     method: 'POST',
     headers: {
@@ -17,53 +15,5 @@ export async function sendMail({ name, email, message }: formProps ) {
   return response.json();
 }
 
-export async function getSocials() {
-  try {
-    const response = await fetch(`${baseURL}/socials`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      cache: 'force-cache'
-    })    
-    return response.json()
-  }
-  catch (error) {
-    console.error(error)
-    throw new Error(
-      'There was an error fetching the socials'
-    )
-  }
-}
-
-export async function getProjects() {
-  try {
-    const response = await fetch(`${baseURL}/projects`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      cache: 'force-cache'
-      });
-    return response.json();
-  }
-  catch (error) {
-    console.error(error);
-    throw new Error(
-      'There was an error fetching the projects'
-    )
-  }
-}
-
-export async function getRoutes() {
-  try {
-    const response = await fetch(`${baseURL}/routes`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      cache: 'force-cache'
-    });
-    return response.json();
-  }
-  catch (error) {
-    console.error(error);
-    throw new Error(
-      'There was an error fetching the routes'
-    )
-  }
-}
+// All other data fetching functions (getSocials, getProjects, getRoutes)
+// have been replaced with direct imports from staticData.ts

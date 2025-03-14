@@ -1,83 +1,26 @@
 // its my prismaClient, what i use to connect to my database
-import { prisma } from '../../lib/prisma'
+// import prisma from '../../lib/prisma'
 // types
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { Projects } from 'services/types/baseTypes';
+// import type { NextApiRequest, NextApiResponse } from 'next'
+// import { Projects } from 'services/types/baseTypes';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Projects[] | Projects>
-) {
-  // POST method
-  if (req.method === 'POST') {
-    const projectCreated = await prisma.projects.create({
-      data: {
-        title: req.body.title,
-        description: req.body.description,
-        tags: req.body.tags,
-        image: req.body.image,
-        github: req.body.github,
-        deploy: req.body.deploy,
-      },
-    })
-    res.status(201).json(projectCreated)
-  }
-  // POST method
+// export default async function handler(
+//   req: NextApiRequest,
+//   res: NextApiResponse
+// ) {
+  // This is likely where you handle your project API logic
+  // with operations like GET, POST, etc.
+  
+  // if (req.method === 'GET') {
+  //   try {
+  //     const projects = await prisma.project.findMany();
+  //     res.status(200).json(projects);
+  //   } catch (error) {
+  //     res.status(500).json({ error: 'Failed to fetch projects' });
+  //   }
+  // }
+  
+  // Add other HTTP methods as needed
+// }
 
-  // GET method
-  else if (req.method === 'GET') {
-    let project;
-    if (req.query.id) {
-      project = await prisma.projects.findUnique({
-        where: {
-          id: Number(req.query.id),
-        },
-      })
-    }
-    else {
-      project = await prisma.projects.findMany()
-    }
-    res.status(200).json(project || [])
-  }
-  // GET method
-
-  // PUT method => overwrites the entire entity if it already exists, and creates a new resource if it doesn’t exist.
-  else if (req.method === 'PUT') {
-    const newProjectOvewrite = await prisma.projects.update({
-      where: {
-        id: Number(req.query.id)
-      },
-      data: {
-        title: req.body.title,
-        description: req.body.description,
-        tags: req.body.tags,
-        image: req.body.image,
-        github: req.body.github,
-        deploy: req.body.deploy,
-      },
-    })
-    res.status(200).json(newProjectOvewrite)
-  }
-  // PUT method
-
-  // PATCH method updates only the fields that are provided in the request body.
-  else if (req.method === 'PATCH') {
-    const projectModified = await prisma.projects.update({
-      where: { id: Number(req.query.id) },
-      data: req.body,
-    })
-    res.status(200).json(projectModified)
-  }
-  // PATCH method
-
-  // DELETE method
-  else if (req.method === 'DELETE') {
-    await prisma.projects.delete({
-      where: {
-        id: Number(req.query.id)
-      },
-    })
-    res.status(204).end()
-  }
-  // DELETE method
-}
+export {}

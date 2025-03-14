@@ -1,22 +1,13 @@
 import React from 'react';
-// helpers
-import { useEffect, useState } from 'react';
 // styles
 import { Box, Container, Stack, useColorModeValue } from '@chakra-ui/react';
 // components
 import TextDocRights from './Web/TextDocRights';
 import FooterSocialLinks from './Web/FooterSocialLinks';
-// requests
-import { getSocials } from '../../../services/requests';
+// static data
+import { socials } from '../../../data/staticData';
 
-export default function Footer() {
-  const [socials, setSocials] = useState([]);
-  useEffect(() => {
-    getSocials().then((data) => {
-      setSocials(data);
-    });
-  }, []);
-
+export default function Footer(): JSX.Element {
   return (
     <Box
       borderTopColor={useColorModeValue('gray.200', 'gray.700')}

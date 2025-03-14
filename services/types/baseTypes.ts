@@ -1,17 +1,37 @@
-import { routes, socials, projects } from '@prisma/client';
+export interface Social {
+  id: number;
+  name: string;
+  link: string;
+}
 
-export type Routes = routes;
-export type Socials = socials;
-export type Projects = projects;
+export interface Route {
+  id: number;
+  name: string;
+  path: string;
+}
 
-export type ArrayOfRoutes = {
-  routes: routes[];
-};
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  github: string;
+  deploy: string;
+}
+
+export type Socials = Social;
+export type Routes = Route;
+export type Projects = Project;
 
 export type ArrayOfSocials = {
-  socials: socials[];
+  socials: Social[];
+};
+
+export type ArrayOfRoutes = {
+  routes: Route[];
 };
 
 export type ArrayOfProjects = {
-  projects: projects[];
+  projects: Project[];
 };

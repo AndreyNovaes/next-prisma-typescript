@@ -1,10 +1,31 @@
 import React from 'react';
 // styles
-import { Box, Heading, Link, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, Link, Stack, Text, useColorModeValue, Icon } from '@chakra-ui/react';
 // helpers
-import nextLink from 'next/link';
+import NextLink from 'next/link';
+// icons
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 export default function TextBox(): JSX.Element {
+  // Custom link styles to improve UX
+  const linkStyles = {
+    position: 'relative',
+    color: 'telegram.400',
+    fontWeight: 'medium',
+    textDecoration: 'none',
+    borderBottom: '1px dashed',
+    transition: 'all 0.2s ease-in-out',
+    _hover: {
+      color: 'telegram.600',
+      borderBottom: '1px solid',
+      textDecoration: 'none',
+    },
+    _focus: {
+      boxShadow: 'outline',
+      outline: 'none',
+    },
+  };
+
   return (
     <>
       <Stack maxW={{ base:'lg', sm:'lg', md: '2xl', lg: '4xl'}} >
@@ -17,7 +38,7 @@ export default function TextBox(): JSX.Element {
           color={useColorModeValue('gray.900', 'white')}
           textAlign="center"
         >
-          Como conheci a programação
+          Minha Jornada na Tecnologia
         </Heading>
         <Box
           mt={{ base: '4', md: '10' }}
@@ -30,46 +51,49 @@ export default function TextBox(): JSX.Element {
             color={useColorModeValue('gray.500', 'gray.400')}
           >
             <Text color={useColorModeValue('brand.600', 'brand.400')} align='center'>
-              Ex jogador profissional de e-sports, decidido a encontrar novos horizontes, com o ímpeto de procurar uma nova carreira encontrei o&nbsp;
-              <Link color='telegram.400' as={nextLink} target='_blank' passHref href='https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0&ab_channel=CursoemV%C3%ADdeo'>
-                curso de python do Gustavo Guanabara
-              </Link>
-              &nbsp;no youtube, e, a partir daí que eu tive certeza que
-              era isso que eu queria fazer da minha vida.
+              Minha trajetória começa de forma incomum: como jogador profissional de e-sports, desenvolvi habilidades valiosas em estratégia, trabalho em equipe e resiliência sob pressão. Buscando novos desafios, descobri o&nbsp;
+              <NextLink href='https://www.youtube.com/watch?v=S9uPNppGsGo&list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0&ab_channel=CursoemV%C3%ADdeo' passHref target='_blank'>
+                <Link sx={linkStyles}>
+                  curso de Python do Gustavo Guanabara <Icon as={ExternalLinkIcon} mx='1px' boxSize='3' verticalAlign='text-top' />
+                </Link>
+              </NextLink>
+              &nbsp;e imediatamente percebi que havia encontrado minha verdadeira vocação na tecnologia.
             </Text>
               <br />
               <Text color={useColorModeValue('brand.600', 'brand.400')} align='center'> 
-                Entrei em uma faculdade de sistemas de informação, onde tive meu primeiro contato com a programação web, porém, não
-                sentia que a faculdade estava gerando valor em relação a minha carreira, era um curso lento, desatualizado e estático,
-                queria algo mais dinâmico, rápido, algo que realmente pudesse gerar valor na minha carreira, então comecei a pesquisar sobre outros cursos e ferramentas para estudar por conta própria,
-                acabei encontrando o curso de desenvolvimento web da Trybe, onde aprendi a programar em javascript, react, node,
-                entre outras tecnologias.
+                Após iniciar minha jornada acadêmica em Sistemas de Informação, rapidamente identifiquei que precisava de um aprendizado mais intensivo e atualizado. Encontrei na Trybe um programa que atendia minhas expectativas, onde desenvolvi forte base em JavaScript, React, Node.js, e outras tecnologias de ponta. Atualmente, como QA Engineer na Telcomanager, aplico esses conhecimentos na criação e automação de testes, garantindo a qualidade das soluções entregues.
               </Text>
               <br />
               <Text as="p" color={useColorModeValue('brand.600', 'brand.400')} align='center'>
-                Me inspiro em grandes figuras como&nbsp;
-                <Link color='telegram.400' as={nextLink} target='_blank' passHref href='https://www.youtube.com/c/RodrigoBranas'>
-                  Rodrigo Branas
-                </Link>
+                Minha abordagem é fortemente influenciada por referências como&nbsp;
+                <NextLink href='https://www.youtube.com/c/RodrigoBranas' passHref target='_blank'>
+                  <Link sx={linkStyles}>
+                    Rodrigo Branas <Icon as={ExternalLinkIcon} mx='1px' boxSize='3' verticalAlign='text-top' />
+                  </Link>
+                </NextLink>
                 &nbsp;,&nbsp;
-                <Link color='telegram.400' as={nextLink} target='_blank' passHref href='https://www.youtube.com/c/MangoDeveloper'>
-                  Rodrinho Manguinho
-                </Link>
+                <NextLink href='https://www.youtube.com/c/MangoDeveloper' passHref target='_blank'>
+                  <Link sx={linkStyles}>
+                    Rodrigo Manguinho <Icon as={ExternalLinkIcon} mx='1px' boxSize='3' verticalAlign='text-top' />
+                  </Link>
+                </NextLink>
                 &nbsp;,&nbsp;
-                <Link color='telegram.400' as={nextLink} target='_blank' passHref href='https://www.youtube.com/c/FullCycle'>
-                  Wesley Willians
-                </Link>
+                <NextLink href='https://www.youtube.com/c/FullCycle' passHref target='_blank'>
+                  <Link sx={linkStyles}>
+                    Wesley Willians <Icon as={ExternalLinkIcon} mx='1px' boxSize='3' verticalAlign='text-top' />
+                  </Link>
+                </NextLink>
                 &nbsp;e&nbsp;
-                <Link color='telegram.400' as={nextLink} target='_blank' passHref href='https://www.youtube.com/user/OtavioALLemos'>
-                  Otavio Lemos
-                </Link>
-                &nbsp;e espero um dia chegar ao nível deles.
+                <NextLink href='https://www.youtube.com/user/OtavioALLemos' passHref target='_blank'>
+                  <Link sx={linkStyles}>
+                    Otavio Lemos <Icon as={ExternalLinkIcon} mx='1px' boxSize='3' verticalAlign='text-top' />
+                  </Link>
+                </NextLink>
+                &nbsp;, cuja expertise técnica e capacidade de simplificar conceitos complexos me inspiram constantemente.
               </Text>
               <br />
               <Text as="p" color={useColorModeValue('brand.600', 'brand.400')} align='center'>
-                Hoje, já formado pela Trybe, busco novas oportunidades para continuar aprendendo, pretendo, quando tiver uma 
-                maior senioridade, ajudar pessoas que estão começando agora como eu, tentando sempre tornar algo que é difícil e 
-                complicado, simples e fácil.
+                Hoje, com formação completa em desenvolvimento web e experiência em automação e QA, continuo ampliando meus conhecimentos em Defesa Cibernética. Meu objetivo é não apenas crescer tecnicamente, mas eventualmente contribuir para a comunidade de desenvolvedores, compartilhando conhecimento e tornando conceitos complexos acessíveis para quem está iniciando - assim como os mentores que me inspiraram no começo da minha jornada.
               </Text>
             </Box>
         </Box>

@@ -1,5 +1,5 @@
 // its my prismaClient, what i use to connect to my database
-import { prisma } from '../../lib/prisma'
+import prisma from '../../lib/prisma'
 // types
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Routes } from 'services/types/baseTypes';
